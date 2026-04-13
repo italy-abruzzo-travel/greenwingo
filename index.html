@@ -386,6 +386,91 @@
     .about-text em {
       color: var(--terracotta);
       font-style: italic;
+        /* ── NOTES & FINDS ── */
+    .notes-section {
+      background: var(--cream);
+      border-top: 1px solid var(--terracotta-pale);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 5rem 2rem;
+    }
+
+    .notes-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .notes-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .notes-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .notes-title em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .notes-sub {
+      font-size: 0.9rem;
+      color: var(--stone);
+      margin-bottom: 3rem;
+    }
+
+    .note-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 1.8rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+
+    .note-date {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--stone-light);
+      padding-top: 0.25rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .note-body {
+      border-left: 1px solid var(--terracotta-pale);
+      padding-left: 1.8rem;
+    }
+
+    .note-text {
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-link {
+      font-size: 0.8rem;
+      color: var(--terracotta);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .note-link:hover { border-color: var(--terracotta); }
+    .note-link::after { content: ' →'; }
+
     }
 
     /* ── FOOTER ── */
