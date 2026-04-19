@@ -345,50 +345,15 @@
       text-transform: uppercase;
       padding: 0.5rem 1.2rem;
       border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
     }
 
-    /* ── ABOUT ── */
-    .about-section {
-      max-width: 680px;
-      margin: 5rem auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
+    .pill:hover { background: var(--terracotta-light); }
 
-    .about-accent {
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--terracotta), var(--forest));
-      border-radius: 2px;
-      min-height: 120px;
-    }
-
-    .about-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--stone);
-      margin-bottom: 0.8rem;
-    }
-
-    .about-text {
-      font-family: 'Lora', serif;
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      line-height: 1.85;
-      font-weight: 400;
-    }
-
-    .about-text em {
-      color: var(--terracotta);
-      font-style: italic;
-        /* ── NOTES & FINDS ── */
+    /* ── NOTES & FINDS ── */
     .notes-section {
-      background: var(--cream);
+      background: var(--warm-white);
       border-top: 1px solid var(--terracotta-pale);
       border-bottom: 1px solid var(--terracotta-pale);
       padding: 5rem 2rem;
@@ -471,6 +436,45 @@
     .note-link:hover { border-color: var(--terracotta); }
     .note-link::after { content: ' →'; }
 
+    /* ── ABOUT ── */
+    .about-section {
+      max-width: 680px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-accent {
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--terracotta), var(--forest));
+      border-radius: 2px;
+      min-height: 120px;
+    }
+
+    .about-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-text {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 400;
+    }
+
+    .about-text em {
+      color: var(--terracotta);
+      font-style: italic;
     }
 
     /* ── FOOTER ── */
@@ -506,6 +510,8 @@
       .nav-links { display: none; }
       .about-section { grid-template-columns: 1fr; }
       .about-accent { display: none; }
+      .note-item { grid-template-columns: 1fr; }
+      .note-date { text-align: left; }
     }
   </style>
 </head>
@@ -529,6 +535,7 @@
     <ul class="nav-links">
       <li><a href="#series">Series</a></li>
       <li><a href="#coming">Latest</a></li>
+      <li><a href="#notes">Notes</a></li>
       <li><a href="#about">About</a></li>
     </ul>
   </nav>
@@ -559,7 +566,7 @@
         </div>
         <div class="card-body">
           <p class="card-desc">Abandoned, silent, slowly returning to the earth. Villages where the walls remember everything the people left behind.</p>
-          <p class="card-count">Ready</p>
+          <p class="card-count">Ready — №1 Buonanotte</p>
         </div>
       </a>
     </div>
@@ -574,17 +581,35 @@
         that emptied out slowly, leaving only walls, weeds, and a name that sounds like a farewell.
         The first Greenwingo story is here to be read.
       </p>
-      <span class="pill fade-in">Ghost Villages — №1</span>
+      <a class="pill fade-in" href="buonanotte.html">Ghost Villages — №1 &nbsp;→</a>
     </div>
   </section>
-  Notes & Finds
 
-Thoughts, links,
-and things worth sharing
-A small corner for whatever does not fit an article.
+  <section class="notes-section" id="notes">
+    <div class="notes-inner">
+      <p class="notes-label fade-in">Notes &amp; Finds</p>
+      <h2 class="notes-title fade-in">Thoughts, links,<br>and <em>things worth sharing</em></h2>
+      <p class="notes-sub fade-in">A small corner for whatever does not fit an article.</p>
 
-Apr 2026
-Started this blog because I kept passing signs for places I had never stopped at — and one day I stopped. That is all this is, really.
+      <div class="note-item fade-in">
+        <span class="note-date">Apr 2026</span>
+        <div class="note-body">
+          <p class="note-text">Started this blog because I kept passing signs for places I had never stopped at — and one day I stopped. That is all this is, really.</p>
+        </div>
+      </div>
+
+      <!-- Per aggiungere una nuova nota, copia questo blocco:
+      <div class="note-item fade-in">
+        <span class="note-date">Mese Anno</span>
+        <div class="note-body">
+          <p class="note-text">Il tuo testo qui.</p>
+          <a class="note-link" href="https://...">Testo del link</a>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </section>
 
   <section class="about-section" id="about">
     <div class="about-accent"></div>
