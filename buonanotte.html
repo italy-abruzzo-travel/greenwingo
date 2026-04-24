@@ -35,6 +35,7 @@
       overflow-x: hidden;
     }
 
+    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
@@ -76,6 +77,7 @@
 
     .nav-links a:hover { color: var(--terracotta); }
 
+    /* ── ARTICLE HEADER ── */
     .article-header {
       position: relative;
       background: linear-gradient(160deg, #2e2820 0%, #1e1810 100%);
@@ -166,32 +168,71 @@
       opacity: 0.4;
     }
 
-    .hero-image {
-      display: block;
-      margin: 2rem auto;
-      max-height: 480px;
-      max-width: 340px;
+    /* ── SLIDESHOW ── */
+    .slideshow {
+      position: relative;
       width: 100%;
-      border-radius: 2px;
+      height: 480px;
+      background: #1a1510;
+      overflow: hidden;
     }
 
-    .hero-placeholder {
-      width: 100%;
-      height: 420px;
-      background: linear-gradient(160deg, #3a3028 0%, #252018 100%);
+    .slide {
+      position: absolute;
+      inset: 0;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.8rem;
-      color: var(--stone);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 1.2s ease;
     }
 
-    .hero-placeholder span { font-size: 2.5rem; opacity: 0.3; }
+    .slide.active { opacity: 1; }
 
+    .slide img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .slide-dots {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+
+    .slide-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      transition: background 0.3s;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .slide-dot.active { background: var(--terracotta-light); }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    /* ── ARTICLE BODY ── */
     .article-body {
       max-width: 680px;
       margin: 0 auto;
@@ -248,25 +289,7 @@
       width: 100%;
       display: block;
       border-radius: 2px;
-      filter: sepia(10%) contrast(1.04);
     }
-
-    .article-image.placeholder {
-      background: linear-gradient(160deg, #e8e0d4 0%, #d8cfc4 100%);
-      height: 320px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 2px;
-      gap: 0.5rem;
-      color: var(--stone);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .article-image.placeholder span { font-size: 2rem; opacity: 0.35; }
 
     .image-caption {
       font-size: 0.78rem;
@@ -322,6 +345,7 @@
     .back-link:hover { color: var(--terracotta); }
     .back-link::before { content: '←'; font-size: 0.9rem; }
 
+    /* ── FOOTER ── */
     footer {
       background: var(--ink);
       color: var(--stone-light);
@@ -333,6 +357,7 @@
 
     footer span { color: var(--terracotta-light); }
 
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -352,6 +377,7 @@
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .article-image { margin: 2rem 0; }
+      .slideshow { height: 320px; }
     }
   </style>
 </head>
@@ -380,7 +406,23 @@
     </div>
   </header>
 
-  <img class="hero-image" src="images/buonanottefoto4.jpg" alt="Buonanotte, the abandoned village" />
+  <!-- SLIDESHOW -->
+  <div class="slideshow" id="slideshow">
+    <div class="slide active">
+      <img src="images/buonanotte10.jpg" alt="Val di Sangro panorama" />
+    </div>
+    <div class="slide">
+      <img src="images/buonanotte9.jpg" alt="Roccascalegna castle" />
+    </div>
+    <div class="slide">
+      <img src="images/buonanottefoto4.jpg" alt="Buonanotte village" />
+    </div>
+    <div class="slide-dots">
+      <button class="slide-dot active" onclick="goToSlide(0)"></button>
+      <button class="slide-dot" onclick="goToSlide(1)"></button>
+      <button class="slide-dot" onclick="goToSlide(2)"></button>
+    </div>
+  </div>
 
   <article class="article-body">
 
@@ -396,14 +438,14 @@
       The valley sits between the mountains of the Majella and the Adriatic coast. Both are close enough to reach in a morning — which means you never feel trapped. You feel held. The air is different here. The pace is different. I ate well, I slept well, I walked without counting steps.
     </p>
 
+    <p class="fade-in">
+      One of those days I visited Roccascalegna — a medieval castle perched dramatically on a rocky spur above the Val di Sangro, founded in the twelfth century. The guide's storytelling made the stones come alive: history you don't just hear, you feel in your chest. We took some beautiful photos up on those walls. Afterwards we ate at a nearby restaurant — simple and careful, the kind of place that takes quiet pride in every detail without making a fuss about it.
+    </p>
+
     <div class="article-image fade-in">
       <img src="images/buonanotte8.jpg" alt="The road to Buonanotte" />
     </div>
     <p class="image-caption fade-in">The road up to Buonanotte. It takes a while — but it's worth every metre.</p>
-
-    <p class="fade-in">
-      One of those days I visited Roccascalegna — a medieval castle perched dramatically on a rocky spur above the Val di Sangro, founded in the twelfth century. The guide's storytelling made the stones come alive: history you don't just hear, you feel in your chest. We took some beautiful photos up on those walls. Afterwards we ate at a nearby restaurant — simple and careful, the kind of place that takes quiet pride in every detail without making a fuss about it.
-    </p>
 
     <div class="pull-quote fade-in">
       <p>Then, almost by accident, we found it.</p>
@@ -422,6 +464,11 @@
       The road to get there takes a while. But the moment you arrive, you understand why it was worth it. We stepped out of the car and the silence hit us immediately — not an empty silence, but a full one. The kind that has weight. Nature here doesn't just grow around the ruins, it embraces them. Almost suffocatingly. Vines through windows, grass pushing between stones, trees reclaiming what used to be floors.
     </p>
 
+    <div class="article-image fade-in">
+      <img src="images/buonanotte5.jpg" alt="QR code sign with the history of Buonanotte" />
+    </div>
+    <p class="image-caption fade-in">Scan the QR code on the sign to read the full history of the village.</p>
+
     <p class="fade-in">
       Every step felt like a small ritual. We walked slowly, without talking much. There's a kind of respect that comes over you in places like this, without anyone asking for it.
     </p>
@@ -435,6 +482,10 @@
     </div>
     <p class="image-caption fade-in">The stone steps. Still there, still waiting.</p>
 
+    <p class="fade-in">
+      From up there, the view opens up completely. You can see the valley of the Sangro river, the Lago di Bomba glinting far below, and the mountains stretching in every direction. The air is clean and still. The whole landscape breathes.
+    </p>
+
     <div class="article-image fade-in">
       <img src="images/buonanotte1.jpg" alt="The sea, the lake and the vegetation from Buonanotte" />
     </div>
@@ -446,16 +497,17 @@
     <p class="image-caption fade-in">The Lago di Bomba and the Val di Sangro, seen from above.</p>
 
     <p class="fade-in">
-      From up there, the view opens up completely. You can see the valley of the Sangro river, the Lago di Bomba glinting far below, and the mountains stretching in every direction. The air is clean and still. The whole landscape breathes.
-    </p>
-
-    <p class="fade-in">
       At some point, from far away, I heard a small radio playing. For a moment I thought — the village was still alive. But I was wrong. I found out later that a little radio had been left running on purpose, playing music continuously, to keep the village company. I found that unbearably tender.
     </p>
 
     <p class="fade-in">
       And then there were the verses. Someone had displayed the poems of a local poet — Dangelo Mimmo — written in the simplest of language, but with a depth that catches you off guard. He wrote about family, about grandparents, about the stories of the past that travel with us whether we want them to or not. I read them slowly, more than once.
     </p>
+
+    <div class="article-image fade-in">
+      <img src="images/buonanotte7.jpg" alt="The verses of Dangelo Mimmo" />
+    </div>
+    <p class="image-caption fade-in">The verses of Dangelo Mimmo, displayed on the wall. Simple words, deep roots.</p>
 
     <div class="pull-quote fade-in">
       <p>Unspoken stories are the greatest loss there is. I would give anything to go back, sit next to my grandfather, and give him one more minute. Maybe I was too young then to know how to listen.</p>
@@ -470,16 +522,6 @@
     </p>
 
     <div class="article-image fade-in">
-      <img src="images/buonanotte7.jpg" alt="The verses of Dangelo Mimmo" />
-    </div>
-    <p class="image-caption fade-in">The verses of Dangelo Mimmo, displayed on the wall. Simple words, deep roots.</p>
-
-    <div class="article-image fade-in">
-      <img src="images/buonanotte5.jpg" alt="QR code sign with the history of Buonanotte" />
-    </div>
-    <p class="image-caption fade-in">Scan the QR code on the sign to read the full history of the village.</p>
-
-    <div class="article-image fade-in">
       <img src="images/buonanottefoto3.jpg" alt="Buonanotte — the view" />
     </div>
     <p class="image-caption fade-in">The valley of the Sangro, the Lago di Bomba, and the mountains of Abruzzo.</p>
@@ -492,10 +534,28 @@
   </article>
 
   <footer>
-    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2025</p>
+    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2026</p>
   </footer>
 
   <script>
+    // Slideshow
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slide-dot');
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    setInterval(() => {
+      goToSlide((current + 1) % slides.length);
+    }, 4000);
+
+    // Fade in on scroll
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
