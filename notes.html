@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes & Finds · Greenwingo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --terracotta: #c4622d;
+      --terracotta-light: #d4754a;
+      --terracotta-pale: #f0d9cc;
+      --forest: #3a5a3c;
+      --forest-light: #5a7a5c;
+      --stone: #8c8278;
+      --stone-light: #b5aea6;
+      --ink: #2a2420;
+      --ink-soft: #4a3f3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      position: relative;
+      background: linear-gradient(160deg, var(--forest) 0%, #2c4a2e 60%, #1e3020 100%);
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 30%, rgba(196,98,45,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .page-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .page-header-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeUp 1.1s ease both;
+    }
+
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      opacity: 0.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .page-title em {
+      font-style: italic;
+      color: var(--terracotta-light);
+    }
+
+    .page-desc {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--stone-light);
+      line-height: 1.6;
+    }
+
+    /* ── NOTES LIST ── */
+    .notes-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      margin-bottom: 4rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+    .back-link::before { content: '←'; font-size: 0.9rem; }
+
+    /* ── NOTE ENTRY ── */
+    .note-entry {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 2rem;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--terracotta-pale);
+      align-items: start;
+    }
+
+    .note-entry:last-of-type {
+      border-bottom: none;
+    }
+
+    .note-meta {
+      text-align: right;
+      padding-top: 0.3rem;
+    }
+
+    .note-date {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .note-category {
+      font-size: 0.65rem;
+      color: var(--stone-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .note-content {
+      border-left: 2px solid var(--terracotta-pale);
+      padding-left: 2rem;
+    }
+
+    .note-title {
+      font-family: 'Lora', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .note-title em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .note-content p {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .note-content p.note-lead {
+      font-size: 1.1rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pull-quote {
+      margin: 2rem 0;
+      padding: 0 0 0 1.5rem;
+      border-left: 3px solid var(--terracotta);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic;
+      font-size: 1.2rem !important;
+      color: var(--forest) !important;
+      line-height: 1.7 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--stone-light);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer span { color: var(--terracotta-light); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .note-entry { grid-template-columns: 1fr; }
+      .note-meta { text-align: left; margin-bottom: 1rem; }
+      .note-content { border-left: none; padding-left: 0; border-top: 2px solid var(--terracotta-pale); padding-top: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#series">Series</a></li>
+      <li><a href="index.html#notes">Notes</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">A personal space</p>
+      <h1 class="page-title">Notes, <em>reflections</em><br>& finds</h1>
+      <p class="page-desc">Thoughts, tips, and things worth sharing —<br>whatever does not fit an article.</p>
+    </div>
+  </header>
+
+  <div class="notes-body">
+
+    <a class="back-link fade-in" href="index.html">Back to Greenwingo</a>
+
+    <!-- NOTE 1 — Reflection -->
+    <div class="note-entry fade-in">
+      <div class="note-meta">
+        <span class="note-date">Apr 2026</span>
+        <span class="note-category">Reflection</span>
+      </div>
+      <div class="note-content">
+        <h2 class="note-title">The real luxury — <em>slowing down</em></h2>
+
+        <p class="note-lead">I think I am quite lucky: I live in a city that is not too large, with decent job opportunities and enough services to live well.</p>
+
+        <p>A car is a must — public transport doesn't cover the whole area — but when the weather is good, a walk is never a bad idea, and we have six bicycles between us.</p>
+
+        <p>Around me there are mountains, woods and meadows for walking and leaving stress behind. Villages easy to reach, ancient churches full of history, and medieval castles that light up on the rocks at sunset: our guardians. Museums, squares that come alive on Sunday mornings, the market where I look for a bargain and find local food — unique, unrepeatable.</p>
+
+        <div class="pull-quote">
+          <p>I cannot bring myself to envy life in big cities. The constant rushing, the traffic, that growing need for silence that finds no answer.</p>
+        </div>
+
+        <p>Today more than ever we discover how fragile we are, and we need rhythms more in line with what we actually need — for our mental health and beyond.</p>
+
+        <p>And yet, out of necessity — for work, for better services — people are often forced to leave their village or small town and take on a different kind of challenge. Here in Abruzzo, the problem of depopulation is real, and without concrete solutions it can only get worse. It is not unusual to find places where the inhabitants — at least the elderly ones — can be counted on one hand. We leave everything behind, reluctantly. A heart that grows a little smaller every time we look back.</p>
+
+        <p>There are places trying to find a remedy — and I will write about that further on. But in Italy, the demographics do not help. It is an ageing country, they say. Perhaps it is its destiny to disappear, as even Musk suggests. But how do you let go of stories, traditions, and the love that goes into every beautiful thing you make?</p>
+
+        <div class="pull-quote">
+          <p>I don't want much: luxury, multi-figure salaries, parties and nightlife. I already have everything — just like this. This, for me, is the real luxury.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Aggiungi altre note qui sotto copiando il blocco note-entry -->
+
+  </div>
+
+  <footer>
+    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2026</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
