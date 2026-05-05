@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villalago — Village Diaries №1 · Greenwingo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --terracotta: #c4622d;
+      --terracotta-light: #d4754a;
+      --terracotta-pale: #f0d9cc;
+      --forest: #3a5a3c;
+      --forest-light: #5a7a5c;
+      --stone: #8c8278;
+      --stone-light: #b5aea6;
+      --ink: #2a2420;
+      --ink-soft: #4a3f3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── HERO ── */
+    .article-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 2rem 3.5rem;
+      background: linear-gradient(160deg, var(--forest) 0%, #2c4a2e 60%, #1e3020 100%);
+      overflow: hidden;
+    }
+
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 60%, rgba(58,90,60,0.0) 0%, rgba(30,50,30,0.6) 100%),
+        radial-gradient(ellipse 60% 80% at 80% 30%, rgba(196,98,45,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .article-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .hero-series {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta-light);
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--stone-light);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone-light);
+      opacity: 0.7;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--stone);
+      opacity: 0.4;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .article-body p {
+      font-family: 'Lora', serif;
+      font-size: 1.08rem;
+      color: var(--ink-soft);
+      line-height: 1.95;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+    }
+
+    .article-body em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .article-body strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .section-break {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+
+    .section-break::before,
+    .section-break::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--terracotta-pale);
+    }
+
+    .section-break span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone-light);
+      white-space: nowrap;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 3px solid var(--terracotta);
+      margin: 2.5rem 0 2.5rem 1rem;
+      padding: 0.5rem 0 0.5rem 1.8rem;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic !important;
+      font-size: 1.25rem !important;
+      color: var(--forest) !important;
+      line-height: 1.6 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ── HISTORY BOX ── */
+    .history-box {
+      background: var(--cream);
+      border: 1px solid var(--terracotta-pale);
+      border-radius: 2px;
+      padding: 2rem 2.2rem;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .history-box::before {
+      content: 'History';
+      position: absolute;
+      top: -0.6rem;
+      left: 1.5rem;
+      background: var(--cream);
+      padding: 0 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .history-box p {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.93rem !important;
+      color: var(--stone) !important;
+      line-height: 1.85 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ── SINGLE PHOTO ── */
+    .photo-block {
+      margin: 2.5rem -1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-block img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 520px;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .photo-block img.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .photo-caption {
+      font-size: 0.78rem;
+      color: var(--stone-light);
+      letter-spacing: 0.06em;
+      font-style: italic;
+      margin-top: 0.6rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* ── PHOTO PAIR ── */
+    .photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 2.5rem -1rem;
+    }
+
+    .photo-pair img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 320px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .photo-pair img.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .photo-pair img:nth-child(2) { transition-delay: 0.15s; }
+
+    /* ── GALLERY (eremo) ── */
+    .gallery {
+      margin: 2.5rem -1rem;
+    }
+
+    .gallery-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.8rem;
+      padding: 0 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 0 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 220px;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:nth-child(2) { transition-delay: 0.1s; }
+    .gallery-grid img:nth-child(3) { transition-delay: 0.2s; }
+    .gallery-grid img:nth-child(4) { transition-delay: 0.1s; }
+    .gallery-grid img:nth-child(5) { transition-delay: 0.2s; }
+    .gallery-grid img:nth-child(6) { transition-delay: 0.3s; }
+
+    .gallery-grid img.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gallery-grid img:hover {
+      filter: brightness(1.06);
+      transform: scale(1.02) !important;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(30,24,20,0.95);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 1px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--stone-light);
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ── CLOSING NOTE ── */
+    .closing-note {
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--terracotta-pale);
+      text-align: center;
+    }
+
+    .closing-note p {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic !important;
+      font-size: 1.15rem !important;
+      color: var(--forest) !important;
+      line-height: 1.7 !important;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .back-link:hover { border-color: var(--terracotta); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--stone-light);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer span { color: var(--terracotta-light); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .photo-pair { grid-template-columns: 1fr; }
+      .photo-pair img { height: 260px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid img { height: 160px; }
+      .article-hero { min-height: 55vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#series">Series</a></li>
+      <li><a href="index.html#notes">Notes</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-hero">
+    <div class="hero-inner">
+      <p class="hero-series">🌿 Village Diaries &nbsp;·&nbsp; №1</p>
+      <h1 class="hero-title"><em>Villalago</em></h1>
+      <p class="hero-subtitle">Where Life Still Breathes</p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">L'Aquila Province</span>
+        <span class="hero-divider"></span>
+        <span class="hero-meta-item">Abruzzo</span>
+        <span class="hero-divider"></span>
+        <span class="hero-meta-item">May 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-wrap">
+
+    <a class="back-link fade-in" href="index.html">← Back to Greenwingo</a>
+
+    <div class="article-body">
+
+      <p class="fade-in">The road to Villalago begins at the Cocullo motorway exit. From that moment, the landscape opens up and takes your breath away. On the left, the village of Castrovalva rises majestic on the rock — a vision so dramatic it stops you in your tracks. This is the beginning of the Gole del Sagittario.</p>
+
+      <!-- Photo: cover / sfondo -->
+      <div class="photo-block fade-in">
+        <img src="images/villalagofotosfondo.jpg" alt="View of Villalago and the Sagittario gorge" loading="lazy" />
+        <p class="photo-caption">The gorge opens as soon as you leave the motorway</p>
+      </div>
+
+      <p class="fade-in">The gorge is one of those places that makes you feel beautifully small. On the right, the valley drops away into a breathtaking depth. On the left, mountain walls of rock rise so high they seem to touch the sky — or fall on top of you. I always drive through here in silence, with a deep sense of respect. Those unreachable peaks, the falcons circling above, the raw power of nature — I feel small, and I am perfectly fine with that. I have no desire to conquer anything here.</p>
+
+      <div class="pull-quote fade-in">
+        <p>I feel small, and I am perfectly fine with that. I have no desire to conquer anything here.</p>
+      </div>
+
+      <p class="fade-in">We followed the course of the San Domenico river, stopping for a moment at the bridge leading to the hermitage of the same name. A few photos, a few quiet moments. And then — impossible to ignore — the stunning blue waters of the artificial lake opened before us.</p>
+
+      <!-- Lake photos -->
+      <div class="photo-pair fade-in">
+        <img src="images/villalagoacqueblu.jpg" alt="Blue waters of Lake San Domenico" loading="lazy" />
+        <img src="images/villalagoacqueblu2.jpg" alt="Lake San Domenico, Villalago" loading="lazy" />
+      </div>
+
+      <div class="photo-block fade-in">
+        <img src="images/villalagolagoartificiale1.jpg" alt="Artificial lake near Villalago" loading="lazy" />
+        <p class="photo-caption">The emerald waters of Lake San Domenico</p>
+      </div>
+
+      <div class="photo-pair fade-in">
+        <img src="images/villalagolagoartificiale2.jpg" alt="Lake view, Villalago" loading="lazy" />
+        <img src="images/villalagolagoartificiale3.jpg" alt="Lake San Domenico shores" loading="lazy" />
+      </div>
+
+      <p class="fade-in">A word of warning for anyone planning the trip: the road is narrow, and parking on the sides is genuinely difficult. Plan accordingly.</p>
+
+      <div class="section-break fade-in"><span>The Village</span></div>
+
+      <!-- History box -->
+      <div class="history-box fade-in">
+        <p>Villalago is one of Italy's Most Beautiful Villages — a title it has clearly earned. Its name comes from the Latin <em>Valle de Lacu</em>, recalling the nine lakes that once surrounded the area, most of which have since disappeared. The village dates back to the 11th century, when the Benedictine monk San Domenico Abate founded a monastery in the Sagittario valley. The main church, the Madonna di Loreto, was built between the 1300s and 1400s in Romanesque style. And for those who love unexpected connections: in the 1920s, the Dutch artist M.C. Escher wandered these very streets, finding inspiration for his famous etchings in the alleys and landscapes of Villalago.</p>
+      </div>
+
+      <p class="fade-in">Villalago is a typical village of this region — and that is meant as a compliment. On a Sunday, it is alive. The beautiful church welcomes both tourists and pilgrims. The central square has that unhurried energy that you rarely find anymore. We wandered through narrow alleys, small staircases, the smell of honest, homemade cooking drifting from windows. Houses surrounded by flowers and freshly potted plants, welcoming the spring. Some buildings old and closed, others recently restored. There is life here — real life.</p>
+
+      <!-- Village photo -->
+      <div class="photo-block fade-in">
+        <img src="images/villalago1.jpg" alt="Villalago village streets" loading="lazy" />
+        <p class="photo-caption">The alleys of Villalago, alive on a Sunday morning</p>
+      </div>
+
+      <p class="fade-in">A path leads to a panoramic viewpoint overlooking the valley toward the hermitage. Standing there, high above, the cars below look like ants. The silence is generous.</p>
+
+      <!-- Belvedere -->
+      <div class="photo-block fade-in">
+        <img src="images/villalagobelvederepuntopanoramico.jpg" alt="Panoramic viewpoint, Villalago" loading="lazy" />
+        <p class="photo-caption">From the belvedere, the valley stretches far below</p>
+      </div>
+
+      <div class="section-break fade-in"><span>The Deer</span></div>
+
+      <p class="fade-in">On the way back through the valley, the road offered one more gift: a group of fallow deer resting in the shade at the foot of the mountain. Calm, undisturbed, seemingly at ease with the occasional passing car. We slowed down and continued in silence, careful not to disturb them. I took a few photos from a distance — always with a sense of caution and respect. They were beautiful, and that was enough.</p>
+
+      <div class="photo-pair fade-in">
+        <img src="images/villalagodaini.jpg" alt="Fallow deer resting in the shade" loading="lazy" />
+        <img src="images/villalagostradadaini.jpg" alt="Deer by the roadside, Villalago" loading="lazy" />
+      </div>
+
+      <p class="fade-in">Later, a group of young people approached loudly, too close, phones raised. I felt a quiet sadness watching it. These animals may seem comfortable around people, but that is not an invitation. Silence is owed to them. So is distance. You can admire something beautiful without needing to grab it.</p>
+
+      <div class="section-break fade-in"><span>The Hermitage</span></div>
+
+      <p class="fade-in">In the afternoon, we stopped at the bridge to the Hermitage of San Domenico. The local priest welcomed us warmly. The story of San Domenico is a fascinating one — a life of sacrifice and devotion, drawing pilgrims from far away even today. Inside, you can visit the cave where he sought refuge, and see paintings depicting the miracles attributed to him. It is a place that carries weight, in the quiet way that only truly old things can.</p>
+
+      <!-- Hermitage gallery -->
+      <div class="gallery fade-in">
+        <p class="gallery-label">The Hermitage of San Domenico</p>
+        <div class="gallery-grid">
+          <img src="images/villalagoentrataeramo.jpg" alt="Entrance to the Hermitage of San Domenico" loading="lazy" />
+          <img src="images/villalagoeramo.jpg" alt="Hermitage of San Domenico" loading="lazy" />
+          <img src="images/villalagosandomenicodafuori.jpg" alt="San Domenico hermitage exterior" loading="lazy" />
+          <img src="images/villalagogrottasandomenico.jpg" alt="Cave of San Domenico" loading="lazy" />
+          <img src="images/villalagogrottasandomenico1.jpg" alt="Inside the cave, San Domenico" loading="lazy" />
+          <img src="images/villalagogrottascale.jpg" alt="Steps inside the grotto" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Miracle painting -->
+      <div class="photo-block fade-in">
+        <img src="images/villalagomiracolosandomenicopittura.jpg" alt="Painting of the miracles of San Domenico" loading="lazy" />
+        <p class="photo-caption">Paintings of the miracles of San Domenico, inside the hermitage</p>
+      </div>
+
+      <div class="section-break fade-in"><span>The Return</span></div>
+
+      <p class="fade-in">We ended the day with a walk along the shore of the lake. The sun sets early here, tucked between the mountains, and evening arrives gently. We drove home with full hearts and light spirits. Villalago is the kind of place that stays with you — and the kind that makes you want to come back, to explore the other small villages nearby, to keep discovering what this territory quietly holds.</p>
+
+      <div class="closing-note fade-in">
+        <p>There are treasures here. You just have to slow down enough to find them.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <footer>
+    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2026</p>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Also trigger images inside
+          e.target.querySelectorAll('img').forEach(img => img.classList.add('visible'));
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Also observe images directly
+    const imgObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('img').forEach(img => imgObs.observe(img));
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+  </script>
+
+</body>
+</html>
