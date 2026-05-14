@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
   <meta name="description" content="A personal journey through forgotten and authentic villages of rural Italy — written from Abruzzo with slow life in mind.">
+  <meta property="og:title" content="Greenwingo — Villages of Abruzzo" />
+  <meta property="og:description" content="A personal journey through forgotten and authentic villages of rural Italy — written from Abruzzo with slow life in mind." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://greenwingo.github.io/index.html" />
   <link rel="icon" type="image/png" href="favicon.png">
   <title>Greenwingo — Villages of Abruzzo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -425,15 +429,15 @@
       margin-bottom: 0.5rem;
     }
 
-   .note-link {
-  font-size: 0.8rem;
-  color: var(--terracotta) !important;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--terracotta-pale);
-  padding-bottom: 1px;
-  transition: border-color 0.2s;
-}
+    .note-link {
+      font-size: 0.8rem;
+      color: var(--terracotta) !important;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
 
     .note-link:hover { border-color: var(--terracotta); }
     .note-link::after { content: ' →'; }
@@ -515,20 +519,20 @@
       .note-item { grid-template-columns: 1fr; }
       .note-date { text-align: left; }
     }
+
     .coming-link {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--terracotta);
-  text-decoration: none;
-  border-bottom: 1px solid var(--terracotta-pale);
-  padding-bottom: 2px;
-  transition: border-color 0.2s;
-}
-.coming-link:hover { border-color: var(--terracotta); }
-  
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .coming-link:hover { border-color: var(--terracotta); }
   </style>
 </head>
 <body>
@@ -547,7 +551,7 @@
   </header>
 
   <nav>
-   <a class="nav-logo" href="index.html">Greenwingo</a>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
     <ul class="nav-links">
       <li><a href="#series">Series</a></li>
       <li><a href="#coming">Latest</a></li>
@@ -591,12 +595,12 @@
   <section class="coming-section" id="coming">
     <div class="coming-inner">
       <p class="coming-eyebrow fade-in">Latest Article</p>
-<h2 class="coming-title fade-in"><em>Villalago</em> — where life still breathes</h2>
-<p class="coming-text fade-in">
-  Along the Sagittario gorge, between falcons and fallow deer, a village that earned 
-  its beauty quietly. The first Village Diaries story is here to be read.
-</p>
-<a href="villalago.html" class="coming-link fade-in">Village Diaries — №1 →</a>
+      <h2 class="coming-title fade-in"><em>Beyond the Phone Gallery</em> — the story behind this space</h2>
+      <p class="coming-text fade-in">
+        Why this blog exists, what it means to photograph with intention,
+        and an invitation to look at this land with curious, honest eyes.
+      </p>
+      <a href="beyond-the-phone-gallery.html" class="coming-link fade-in">About this space →</a>
     </div>
   </section>
 
@@ -606,7 +610,13 @@
       <h2 class="notes-title fade-in">Thoughts, links,<br>and <em>things worth sharing</em></h2>
       <p class="notes-sub fade-in">A small corner for whatever does not fit an article.</p>
 
-  
+      <div class="note-item fade-in">
+        <span class="note-date">May 2026</span>
+        <div class="note-body">
+          <p class="note-text">The story behind Greenwingo — on photographing with intention, choosing presence over pixels, and why some places deserve more than an algorithm.</p>
+          <a class="note-link" href="beyond-the-phone-gallery.html">Read the story</a>
+        </div>
+      </div>
 
       <div class="note-item fade-in">
         <span class="note-date">May 2026</span>
@@ -640,7 +650,6 @@
     <div>
       <p class="about-label fade-in">About this blog</p>
       <p class="about-text fade-in">
-        
         Abruzzo - a land full of villages that most people drive past without stopping.
         <em>Greenwingo</em> is my way of stopping.
         Of walking in, looking around, and writing down what I find.
@@ -649,15 +658,16 @@
     </div>
   </section>
 
- <footer>
-  <p>
-    <span>Greenwingo</span> &nbsp;·&nbsp; 
-    Villages of Abruzzo &nbsp;·&nbsp; 
-    If you want to share a story or just say hello: 
-    <a href="mailto:greenwingo.blog@gmail.com" style="color: inherit; text-decoration: underline;">greenwingo.blog@gmail.com</a> &nbsp;·&nbsp; 
-    © 2026
-  </p>
-</footer>
+  <footer>
+    <p>
+      <span>Greenwingo</span> &nbsp;·&nbsp;
+      Villages of Abruzzo &nbsp;·&nbsp;
+      If you want to share a story or just say hello:
+      <a href="mailto:greenwingo.blog@gmail.com" style="color: inherit; text-decoration: underline;">greenwingo.blog@gmail.com</a> &nbsp;·&nbsp;
+      © 2026
+    </p>
+  </footer>
+
   <script>
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
