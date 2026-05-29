@@ -217,7 +217,7 @@
       margin-bottom: 2.5rem;
     }
 
-    /* ── SLIDESHOW GENERAL ── */
+    /* ── SLIDESHOW GENERAL (DESKTOP) ── */
     .slideshow-wrapper {
       position: relative;
       width: 100%;
@@ -232,7 +232,7 @@
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 1.2s ease;
+      transition: opacity 1.2s ease, transform 1.2s ease;
       background-size: cover;
       background-position: center;
     }
@@ -471,22 +471,6 @@
       margin-bottom: 1.5rem;
     }
 
-    .pill {
-      display: inline-block;
-      background: var(--terracotta);
-      color: white;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.5rem 1.2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .pill:hover { background: var(--terracotta-light); }
-
     /* ── NOTES & FINDS ── */
     .notes-section {
       background: var(--warm-white);
@@ -656,7 +640,8 @@
     }
     .coming-link:hover { border-color: var(--terracotta); }
 
-    /* ── CORREZIONE FINALE SLIDESHOW PER MOBILE ── */
+
+    /* ── CONFIGURAZIONE SLIDESHOW VERTICALE SU MOBILE ── */
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .about-section { grid-template-columns: 1fr; }
@@ -664,49 +649,75 @@
       .note-item { grid-template-columns: 1fr; }
       .note-date { text-align: left; }
       
-      /* Forza il wrapper a contenere lo sviluppo verticale disattivando l'absolute desktop */
+      /* Dimensioni bloccate per contenere 1 foto alla volta */
       .slideshow-wrapper { 
         aspect-ratio: auto; 
-        height: auto;
-        overflow: visible;
-        background: transparent;
+        height: 380px; /* <── Altezza ottimale verticale per smartphone */
+        overflow: hidden;
+        position: relative;
+        touch-action: pan-x cubic-bezier; /* Permette il controllo touch */
       }
       
-      /* Rende visibile e stabile lo slide-grid sul mobile */
+      /* Le diapositive non attive vengono nascoste e posizionate fuori asse verticale */
       .slide {
-        position: relative;
-        opacity: 1 !important;
-        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateY(100%); /* Arriva dal basso */
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+        display: block !important;
       }
 
-      /* Le altre diapositive panoramiche (slide 2 e 3) si nascondono sul mobile 
-         perché mostriamo solo la griglia estesa delle 3 immagini */
-      .slide:not(:first-child) {
-        display: none !important;
+      .slide.active {
+        opacity: 1;
+        transform: translateY(0); /* Entra al centro dello schermo */
       }
       
-      /* Incolonna i tre scatti verticalmente occupando lo spazio corretto */
+      /* Quando una slide esce verso l'alto */
+      .slide.exit-up {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+
+      /* Riorganizzazione delle prime 3 foto: ora sono diapositive singole indipendenti! */
       .slide-grid { 
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem; 
+        display: block;
         padding: 0;
+        width: 100%;
+        height: 100%;
         background: transparent;
       }
       
-      /* Regola la dimensione delle immagini per renderle imponenti e leggibili */
+      /* Trasformiamo le 3 foto interne in scatti completi a tutto schermo */
       .mini-photo {
+        display: none; /* Nascondiamo il comportamento di griglia di default */
         width: 100%;
-        height: 280px; /* <── Splendida altezza generosa per valorizzare lo scatto */
+        height: 100%;
         object-fit: cover;
-        object-position: center;
-        border-radius: 4px;
         opacity: 1 !important;
         transform: none !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.06);
       }
 
-      .slide-arrow, .slideshow-dots { display: none !important; }
+      /* Mostriamo solo la foto corrispondente al sotto-indice mobile */
+      .slide-grid.show-photo-1 .mini-photo:nth-child(1) { display: block; }
+      .slide-grid.show-photo-2 .mini-photo:nth-child(2) { display: block; }
+      .slide-grid.show-photo-3 .mini-photo:nth-child(3) { display: block; }
+
+      /* Ottimizzazione sfondi per le diapositive 4 e 5 */
+      .slide[style*="background-image"] {
+        height: 100%;
+        border-radius: 2px;
+      }
+
+      /* Mostriamo piccoli pallini delicati in basso per far capire che si può scorrere */
+      .slideshow-dots { 
+        display: flex !important; 
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+      .slide-arrow { display: none !important; }
     }
   </style>
 </head>
@@ -740,12 +751,12 @@
     <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
     <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
 
-    <!-- SLIDESHOW CON TRITTICO + PANORAMI -->
+    <!-- SLIDESHOW CON STRITTICO + PANORAMI -->
     <div class="slideshow-wrapper fade-in" id="slideshow">
 
-      <!-- SLIDE 1: Le 3 foto più piccole insieme in griglia (In cascata) -->
-      <div class="slide active">
-        <div class="slide-grid">
+      <!-- SLIDE 1 (Su mobile mostrerà la prima foto) -->
+      <div class="slide active-mobile-slide">
+        <div class="slide-grid show-photo-1" id="mobile-grid-1">
           <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
           <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
           <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
@@ -753,13 +764,33 @@
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 2: I Daini (A tutto schermo) -->
-      <div class="slide" style="background-image: url('images/villalagodaini.jpg'); background-position: center;">
+      <!-- SLIDE 2 (Su mobile mostrerà la seconda foto) -->
+      <div class="slide">
+        <div class="slide-grid show-photo-2" id="mobile-grid-2">
+          <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
+          <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
+          <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
+        </div>
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 3: Buonanotte 6 (A tutto schermo) -->
-      <div class="slide" style="background-image: url('images/buonanotte6.jpg'); background-position: center;">
+      <!-- SLIDE 3 (Su mobile mostrerà la terza foto) -->
+      <div class="slide">
+        <div class="slide-grid show-photo-3" id="mobile-grid-3">
+          <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
+          <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
+          <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
+        </div>
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- SLIDE 4: I Daini -->
+      <div class="slide" style="background-image: url('images/villalagodaini.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- SLIDE 5: Buonanotte 6 -->
+      <div class="slide" style="background-image: url('images/buonanotte6.jpg');">
         <div class="slide-overlay"></div>
       </div>
 
@@ -767,13 +798,10 @@
       <button class="slide-arrow next" onclick="changeSlide(1)">&#8250;</button>
     </div>
 
-    <!-- PALLINI AGGIORNATI A 3 DIAPOSITIVE -->
+    <!-- PALLINI ADATTIVI (Diventano 5 in automatico) -->
     <div class="slideshow-dots" id="dots">
-      <button class="dot active" onclick="goToSlide(0)"></button>
-      <button class="dot" onclick="goToSlide(1)"></button>
-      <button class="dot" onclick="goToSlide(2)"></button>
+      <!-- Generati via JavaScript in base al dispositivo -->
     </div>
-    <!-- FINE SLIDESHOW -->
 
     <div class="series-grid">
       <a class="series-card fade-in" href="villalago.html">
@@ -879,29 +907,72 @@
   </footer>
 
   <script>
-    // Fade-in on scroll (Ottimizzato)
+    // Fade-in on scroll
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.05 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-    // Slideshow Logica Aggiornata
+    // ARCHITETTURA UNIFICATA INTELLIGENTE
+    const isMobile = () => window.innerWidth <= 600;
     let current = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
     let timer;
+    
+    // Elementi DOM
+    const wrapper = document.getElementById('slideshow');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots');
+
+    // Inizializza i pallini corretti in base allo schermo
+    function setupDots() {
+      dotsContainer.innerHTML = '';
+      // Se mobile abbiamo 5 foto singole, se desktop abbiamo 3 macro-slide (Trittico + 2 foto)
+      const totalDots = isMobile() ? 5 : 3;
+      
+      for (let i = 0; i < totalDots; i++) {
+        const btn = document.createElement('button');
+        btn.className = `dot ${i === 0 ? 'active' : ''}`;
+        btn.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(btn);
+      }
+    }
 
     function goToSlide(n) {
-      if (slides.length === 0) return;
-      
-      slides[current].classList.remove('active');
-      if (dots.length > 0) dots[current].classList.remove('active');
-      
-      current = (n + slides.length) % slides.length;
-      
-      slides[current].classList.add('active');
-      if (dots.length > 0) dots[current].classList.add('active');
-      
+      const total = isMobile() ? 5 : 3;
+      const prevIndex = current;
+      current = (n + total) % total;
+
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+
+      if (!isMobile()) {
+        // Logica DESKTOP (Slide standard orizzontale)
+        slides.forEach(s => s.className = 'slide');
+        // Riordina per il desktop: slide 0 = trittico completo, 1 = daini (originariamente slide 3), 2 = buonanotte (slide 4)
+        if (current === 0) slides[0].classList.add('active');
+        if (current === 1) slides[3].classList.add('active');
+        if (current === 2) slides[4].classList.add('active');
+      } else {
+        // Logica MOBILE (Vero slideshow verticale fluido)
+        slides.forEach(s => {
+          s.className = 'slide';
+          s.style.transform = 'translateY(100%)';
+        });
+
+        // Gestione delle uscite per effetto scorrimento verso l'alto
+        if (prevIndex !== current && slides[prevIndex]) {
+          slides[prevIndex].classList.add('exit-up');
+        }
+
+        // Attiva la slide corretta
+        if (current < 3) {
+          slides[current].classList.add('active');
+          slides[current].style.transform = 'translateY(0)';
+        } else {
+          slides[current].classList.add('active');
+          slides[current].style.transform = 'translateY(0)';
+        }
+      }
       resetTimer();
     }
 
@@ -909,15 +980,37 @@
 
     function resetTimer() {
       clearInterval(timer);
-      timer = setInterval(() => goToSlide(current + 1), 5000);
+      // Lo slideshow automatico gira solo su desktop
+      if (!isMobile()) {
+        timer = setInterval(() => changeSlide(1), 5000);
+      }
     }
 
-    // Inizializzazione sicura al caricamento del DOM
-    document.addEventListener("DOMContentLoaded", () => {
-      if(slides.length > 0) slides[0].classList.add('active');
-      if(dots.length > 0) dots[0].classList.add('active');
-      resetTimer();
-    });
+    // GESTIONE SWIPE PER MOBILE (Rileva movimenti verticali sulla foto)
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    wrapper.addEventListener('touchstart', e => {
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', e => {
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const threshold = 40; // sensibilità dello scorrimento
+      if (touchStartY - touchEndY > threshold) {
+        changeSlide(1); // Swipe verso l'alto -> Prossima foto
+      } else if (touchEndY - touchStartY > threshold) {
+        changeSlide(-1); // Swipe verso il basso -> Foto precedente
+      }
+    }
+
+    // Inizializzazione al caricamento e al ridimensionamento finestre
+    window.addEventListener('resize', () => { setupDots(); goToSlide(0); });
+    document.addEventListener("DOMContentLoaded", () => { setupDots(); goToSlide(0); });
   </script>
 
 </body>
