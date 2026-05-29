@@ -238,7 +238,7 @@
 
     .slide.active { opacity: 1; }
 
-    /* ── NUOVE REGOLE PER IL TRITTICO DI FOTO PICCOLE ── */
+    /* ── GRIGLIA TRITTICO (DESKTOP) ── */
     .slide-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -260,7 +260,6 @@
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    /* Effetto comparsa in cascata quando la griglia è attiva */
     .slide.active .mini-photo {
       opacity: 1;
       transform: translateY(0);
@@ -654,17 +653,6 @@
       transform: none;
     }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .about-section { grid-template-columns: 1fr; }
-      .about-accent { display: none; }
-      .note-item { grid-template-columns: 1fr; }
-      .note-date { text-align: left; }
-      .slideshow-wrapper { aspect-ratio: 4/3; }
-      .slide-arrow { display: none; }
-      .slide-grid { grid-template-columns: 1fr; gap: 0.5rem; padding: 0.5rem; }
-    }
-
     .coming-link {
       display: inline-block;
       font-size: 0.85rem;
@@ -678,6 +666,35 @@
       transition: border-color 0.2s;
     }
     .coming-link:hover { border-color: var(--terracotta); }
+
+    /* ── STRATEGIA RESPONSIVE PER IL MOBILE (CORRETTA) ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-accent { display: none; }
+      .note-item { grid-template-columns: 1fr; }
+      .note-date { text-align: left; }
+      
+      /* Forza lo slideshow ad allungarsi in verticale solo sulla prima slide per contenere la griglia */
+      .slideshow-wrapper { 
+        aspect-ratio: auto; 
+        min-height: 380px; 
+      }
+      
+      /* La griglia si trasforma in una colonna ordinata */
+      .slide-grid { 
+        grid-template-columns: 1fr; 
+        grid-template-rows: repeat(3, 1fr);
+        gap: 0.6rem; 
+        padding: 0.8rem; 
+      }
+      
+      .mini-photo {
+        height: 110px; /* Altezza bilanciata sul telefono per ogni foto */
+      }
+
+      .slide-arrow { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -872,7 +889,7 @@
 
     function resetTimer() {
       clearInterval(timer);
-      timer = setInterval(() => goToSlide(current + 1), 5000); // Portato a 5 secondi per dare tempo di vedere il trittico
+      timer = setInterval(() => goToSlide(current + 1), 5000); // 5 secondi di attesa
     }
 
     // Inizializzazione sicura al caricamento del DOM
