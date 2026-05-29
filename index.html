@@ -656,7 +656,7 @@
     }
     .coming-link:hover { border-color: var(--terracotta); }
 
-    /* ── NUOVA STRATEGIA MOBILE: GRANDE IMPATTO SENZA TAGLI BRUTTI ── */
+    /* ── CORREZIONE FINALE SLIDESHOW PER MOBILE ── */
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .about-section { grid-template-columns: 1fr; }
@@ -664,37 +664,49 @@
       .note-item { grid-template-columns: 1fr; }
       .note-date { text-align: left; }
       
-      /* Permette allo slideshow di estendersi quanto serve in verticale per accogliere le 3 foto grandi */
+      /* Forza il wrapper a contenere lo sviluppo verticale disattivando l'absolute desktop */
       .slideshow-wrapper { 
         aspect-ratio: auto; 
         height: auto;
-      }
-      
-      /* Incolonna i tre scatti uno sotto l'altro */
-      .slide-grid { 
-        grid-template-columns: 1fr; 
-        grid-template-rows: repeat(3, 260px); /* Ognuna ha ben 260px di altezza, grande e leggibile! */
-        gap: 1.2rem; 
-        padding: 1rem 0; /* Rimuove i margini laterali per dare massima larghezza */
+        overflow: visible;
         background: transparent;
       }
       
-      /* Rende i tre scatti imponenti, centrati e con un leggero effetto zoom al tocco */
+      /* Rende visibile e stabile lo slide-grid sul mobile */
+      .slide {
+        position: relative;
+        opacity: 1 !important;
+        display: block;
+      }
+
+      /* Le altre diapositive panoramiche (slide 2 e 3) si nascondono sul mobile 
+         perché mostriamo solo la griglia estesa delle 3 immagini */
+      .slide:not(:first-child) {
+        display: none !important;
+      }
+      
+      /* Incolonna i tre scatti verticalmente occupando lo spazio corretto */
+      .slide-grid { 
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem; 
+        padding: 0;
+        background: transparent;
+      }
+      
+      /* Regola la dimensione delle immagini per renderle imponenti e leggibili */
       .mini-photo {
-        height: 100%;
-        object-fit: cover; /* Riempie lo spazio elegantemente */
-        object-position: center; /* Tiene il cuore della foto al centro */
+        width: 100%;
+        height: 280px; /* <── Splendida altezza generosa per valorizzare lo scatto */
+        object-fit: cover;
+        object-position: center;
         border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease;
+        opacity: 1 !important;
+        transform: none !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.06);
       }
 
-      /* Effetto interattivo discreto al tocco sul telefono */
-      .mini-photo:active {
-        transform: scale(0.98);
-      }
-
-      .slide-arrow { display: none; }
+      .slide-arrow, .slideshow-dots { display: none !important; }
     }
   </style>
 </head>
@@ -910,4 +922,3 @@
 
 </body>
 </html>
-
