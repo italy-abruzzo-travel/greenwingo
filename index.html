@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK5HE4096N"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PK5HE4096N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -655,7 +656,7 @@
     }
     .coming-link:hover { border-color: var(--terracotta); }
 
-    /* ── STRATEGIA RESPONSIVE PER IL MOBILE CORRETTA AL 100% ── */
+    /* ── NUOVA STRATEGIA MOBILE: GRANDE IMPATTO SENZA TAGLI BRUTTI ── */
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .about-section { grid-template-columns: 1fr; }
@@ -663,27 +664,34 @@
       .note-item { grid-template-columns: 1fr; }
       .note-date { text-align: left; }
       
-      /* Rimuove l'aspetto fisso sul mobile per lasciare spazio allo sviluppo verticale */
+      /* Permette allo slideshow di estendersi quanto serve in verticale per accogliere le 3 foto grandi */
       .slideshow-wrapper { 
         aspect-ratio: auto; 
         height: auto;
-        min-height: 450px; 
       }
       
-      /* Trasforma lo slide-grid in una colonna verticale fissa */
+      /* Incolonna i tre scatti uno sotto l'altro */
       .slide-grid { 
         grid-template-columns: 1fr; 
-        grid-template-rows: repeat(3, auto);
-        gap: 1rem; 
-        padding: 1rem; 
+        grid-template-rows: repeat(3, 260px); /* Ognuna ha ben 260px di altezza, grande e leggibile! */
+        gap: 1.2rem; 
+        padding: 1rem 0; /* Rimuove i margini laterali per dare massima larghezza */
+        background: transparent;
       }
       
-      /* Mostra le foto PER INTERO senza tagliarle in nessun modo */
+      /* Rende i tre scatti imponenti, centrati e con un leggero effetto zoom al tocco */
       .mini-photo {
-        height: auto;
-        max-height: 140px;
-        object-fit: contain; /* <── Mantiene la proporzione esatta senza zoom o tagli */
-        background-color: var(--cream); /* Uniforma lo sfondo */
+        height: 100%;
+        object-fit: cover; /* Riempie lo spazio elegantemente */
+        object-position: center; /* Tiene il cuore della foto al centro */
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+      }
+
+      /* Effetto interattivo discreto al tocco sul telefono */
+      .mini-photo:active {
+        transform: scale(0.98);
       }
 
       .slide-arrow { display: none; }
@@ -720,8 +728,10 @@
     <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
     <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
 
+    <!-- SLIDESHOW CON TRITTICO + PANORAMI -->
     <div class="slideshow-wrapper fade-in" id="slideshow">
 
+      <!-- SLIDE 1: Le 3 foto più piccole insieme in griglia (In cascata) -->
       <div class="slide active">
         <div class="slide-grid">
           <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
@@ -731,10 +741,12 @@
         <div class="slide-overlay"></div>
       </div>
 
+      <!-- SLIDE 2: I Daini (A tutto schermo) -->
       <div class="slide" style="background-image: url('images/villalagodaini.jpg'); background-position: center;">
         <div class="slide-overlay"></div>
       </div>
 
+      <!-- SLIDE 3: Buonanotte 6 (A tutto schermo) -->
       <div class="slide" style="background-image: url('images/buonanotte6.jpg'); background-position: center;">
         <div class="slide-overlay"></div>
       </div>
@@ -743,11 +755,14 @@
       <button class="slide-arrow next" onclick="changeSlide(1)">&#8250;</button>
     </div>
 
+    <!-- PALLINI AGGIORNATI A 3 DIAPOSITIVE -->
     <div class="slideshow-dots" id="dots">
       <button class="dot active" onclick="goToSlide(0)"></button>
       <button class="dot" onclick="goToSlide(1)"></button>
       <button class="dot" onclick="goToSlide(2)"></button>
     </div>
+    <!-- FINE SLIDESHOW -->
+
     <div class="series-grid">
       <a class="series-card fade-in" href="villalago.html">
         <div class="card-thumb village-diaries">
@@ -895,3 +910,4 @@
 
 </body>
 </html>
+
