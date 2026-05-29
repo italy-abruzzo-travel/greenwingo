@@ -281,18 +281,6 @@
       pointer-events: none;
     }
 
-    .slide-caption {
-      position: absolute;
-      bottom: 1.1rem;
-      left: 1.4rem;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 0.8rem;
-      color: rgba(245,240,232,0.72);
-      letter-spacing: 0.04em;
-      z-index: 2;
-    }
-
     .slide-arrow {
       position: absolute;
       top: 50%;
@@ -667,7 +655,7 @@
     }
     .coming-link:hover { border-color: var(--terracotta); }
 
-    /* ── STRATEGIA RESPONSIVE PER IL MOBILE (CORRETTA) ── */
+    /* ── STRATEGIA RESPONSIVE PER IL MOBILE CORRETTA AL 100% ── */
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .about-section { grid-template-columns: 1fr; }
@@ -675,22 +663,27 @@
       .note-item { grid-template-columns: 1fr; }
       .note-date { text-align: left; }
       
-      /* Forza lo slideshow ad allungarsi in verticale solo sulla prima slide per contenere la griglia */
+      /* Rimuove l'aspetto fisso sul mobile per lasciare spazio allo sviluppo verticale */
       .slideshow-wrapper { 
         aspect-ratio: auto; 
-        min-height: 380px; 
+        height: auto;
+        min-height: 450px; 
       }
       
-      /* La griglia si trasforma in una colonna ordinata */
+      /* Trasforma lo slide-grid in una colonna verticale fissa */
       .slide-grid { 
         grid-template-columns: 1fr; 
-        grid-template-rows: repeat(3, 1fr);
-        gap: 0.6rem; 
-        padding: 0.8rem; 
+        grid-template-rows: repeat(3, auto);
+        gap: 1rem; 
+        padding: 1rem; 
       }
       
+      /* Mostra le foto PER INTERO senza tagliarle in nessun modo */
       .mini-photo {
-        height: 110px; /* Altezza bilanciata sul telefono per ogni foto */
+        height: auto;
+        max-height: 140px;
+        object-fit: contain; /* <── Mantiene la proporzione esatta senza zoom o tagli */
+        background-color: var(--cream); /* Uniforma lo sfondo */
       }
 
       .slide-arrow { display: none; }
@@ -889,7 +882,7 @@
 
     function resetTimer() {
       clearInterval(timer);
-      timer = setInterval(() => goToSlide(current + 1), 5000); // 5 secondi di attesa
+      timer = setInterval(() => goToSlide(current + 1), 5000);
     }
 
     // Inizializzazione sicura al caricamento del DOM
