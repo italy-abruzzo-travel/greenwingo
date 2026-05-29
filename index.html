@@ -217,6 +217,104 @@
       margin-bottom: 2.5rem;
     }
 
+    /* ── SLIDESHOW ── */
+    .slideshow-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/7;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active { opacity: 1; }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(30,24,16,0.08) 0%,
+        rgba(30,24,16,0.0) 40%,
+        rgba(30,24,16,0.38) 100%
+      );
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 1.1rem;
+      left: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.72);
+      letter-spacing: 0.04em;
+      z-index: 2;
+    }
+
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(245,240,232,0.1);
+      border: 1px solid rgba(245,240,232,0.18);
+      color: rgba(245,240,232,0.7);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1.1rem;
+      backdrop-filter: blur(4px);
+      line-height: 1;
+    }
+
+    .slide-arrow:hover {
+      background: rgba(196,98,45,0.45);
+      color: white;
+      border-color: transparent;
+    }
+
+    .slide-arrow.prev { left: 0.8rem; }
+    .slide-arrow.next { right: 0.8rem; }
+
+    .slideshow-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stone-light);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+      padding: 0;
+    }
+
+    .dot.active {
+      background: var(--terracotta);
+      transform: scale(1.35);
+    }
+
     /* ── SERIES CARDS ── */
     .series-grid {
       display: grid;
@@ -530,6 +628,8 @@
       .about-accent { display: none; }
       .note-item { grid-template-columns: 1fr; }
       .note-date { text-align: left; }
+      .slideshow-wrapper { aspect-ratio: 4/3; }
+      .slide-arrow { display: none; }
     }
 
     .coming-link {
@@ -576,6 +676,42 @@
     <p class="section-label fade-in">The Series</p>
     <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
     <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
+
+    <!-- SLIDESHOW -->
+    <div class="slideshow-wrapper fade-in" id="slideshow">
+
+      <div class="slide active" style="background-image: url('villalagofotosfondo.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <div class="slide" style="background-image: url('villalagoeramo.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <div class="slide" style="background-image: url('villalagodaini.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <div class="slide" style="background-image: url('buonanotte6.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <div class="slide" style="background-image: url('buonanotte-foto.jpg');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <button class="slide-arrow prev" onclick="changeSlide(-1)">&#8249;</button>
+      <button class="slide-arrow next" onclick="changeSlide(1)">&#8250;</button>
+    </div>
+
+    <div class="slideshow-dots" id="dots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
+      <button class="dot" onclick="goToSlide(3)"></button>
+      <button class="dot" onclick="goToSlide(4)"></button>
+    </div>
+    <!-- FINE SLIDESHOW -->
 
     <div class="series-grid">
       <a class="series-card fade-in" href="villalago.html">
@@ -681,10 +817,35 @@
   </footer>
 
   <script>
+    // Fade-in on scroll
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Slideshow
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let timer;
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      resetTimer();
+    }
+
+    function changeSlide(dir) { goToSlide(current + dir); }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goToSlide(current + 1), 4500);
+    }
+
+    resetTimer();
   </script>
 
 </body>
