@@ -338,8 +338,8 @@
     /* ── SERIES CARDS ── */
     .series-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
       margin-bottom: 5rem;
     }
 
@@ -356,7 +356,7 @@
     .series-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(42,36,32,0.12); }
 
     .card-thumb {
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/9;
       display: flex;
       align-items: flex-end;
       padding: 1.5rem;
@@ -392,35 +392,35 @@
     }
 
     .card-icon {
-      font-size: 3rem;
+      font-size: 3.5rem;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -60%);
-      opacity: 0.25;
+      opacity: 0.22;
     }
 
     .card-title {
       font-family: 'Lora', serif;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 500;
       color: var(--cream);
       position: relative;
-      z-index: 1;
+ z-index: 1;
       line-height: 1.3;
     }
 
     .card-body {
       background: var(--cream);
-      padding: 1.3rem 1.5rem 1.5rem;
+      padding: 1.5rem;
       border-top: 2px solid var(--terracotta-pale);
     }
 
     .card-desc {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--stone);
       line-height: 1.7;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .card-count {
@@ -813,29 +813,17 @@
 
     <div class="slideshow-dots" id="dots"></div>
 
-    <!-- GRIGLIA AGGIORNATA CON AIELLI DENTRO LA SEZIONE VILLAGE DIARIES -->
+    <!-- GRIGLIA DUE MACRO SERIE RIPRISTINATA CORRETTAMENTE -->
     <div class="series-grid">
-      <a class="series-card fade-in" href="villalago.html">
+      <a class="series-card fade-in" href="#notes">
         <div class="card-thumb village-diaries">
           <span class="card-series-label">Series I</span>
           <span class="card-icon">🌿</span>
-          <h3 class="card-title">Village Diaries — Villalago</h3>
+          <h3 class="card-title">Village Diaries</h3>
         </div>
         <div class="card-body">
-          <p class="card-desc">Living villages — still inhabited, still breathing. Stories of the people, the rituals, and the quiet rhythms that hold a community together.</p>
-          <p class="card-count">Ready — №1 Villalago</p>
-        </div>
-      </a>
-
-      <a class="series-card fade-in" href="aielli.html">
-        <div class="card-thumb village-diaries">
-          <span class="card-series-label">Series I</span>
-          <span class="card-icon">🎨</span>
-          <h3 class="card-title">Village Diaries — Aielli</h3>
-        </div>
-        <div class="card-body">
-          <p class="card-desc">An open-air canvas under the Fucino sky. Where history meets contemporary murals, turning old walls into permanent poetry.</p>
-          <p class="card-count">Ready — №2 Aielli</p>
+          <p class="card-desc">Living villages — still inhabited, still breathing. Stories of the people, the rituals, contemporary art murals, and the quiet rhythms that hold a community together.</p>
+          <p class="card-count">Ready — №1 Villalago, №2 Aielli</p>
         </div>
       </a>
 
@@ -843,7 +831,7 @@
         <div class="card-thumb ghost-villages">
           <span class="card-series-label">Series II</span>
           <span class="card-icon">🏚</span>
-          <h3 class="card-title">Ghost Villages — Buonanotte</h3>
+          <h3 class="card-title">Ghost Villages</h3>
         </div>
         <div class="card-body">
           <p class="card-desc">Abandoned, silent, slowly returning to the earth. Villages where the walls remember everything the people left behind.</p>
@@ -983,8 +971,6 @@
         if (current === 4) slides[4].classList.add('active'); 
         if (current === 5) slides[5].classList.add('active'); 
         if (current === 6) slides[6].classList.add('active'); 
-        if (current === 5) slides[5].classList.add('active');
-        if (current === 6) slides[6].classList.add('active');
       } else {
         slides.forEach(s => {
           s.className = 'slide';
