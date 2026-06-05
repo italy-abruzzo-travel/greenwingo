@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PK5HE4096N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PK5HE4096N');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A journey through Aielli, Abruzzo's 'Borgo Universo' — where medieval architecture meets cosmic street art and the complete text of Fontamara. Village Diaries №3 — Greenwingo.">
+  <meta property="og:title" content="Aielli — Village Diaries №3 · Greenwingo" />
+  <meta property="og:description" content="Explore Aielli, a medieval Abruzzese village transformed by astronomy, street art, and literature written on walls." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://greenwingo.blog/aielli.html" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:image" content="https://greenwingo.blog/images/muralesfamosoaielli.jpg" />
+  <title>Aielli — Village Diaries №3 · Greenwingo</title>
+  <link rel="canonical" href="https://greenwingo.blog/aielli.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --terracotta: #c4622d;
+      --terracotta-light: #d4754a;
+      --terracotta-pale: #f0d9cc;
+      --forest: #3a5a3c;
+      --forest-light: #5a7a5c;
+      --stone: #8c8278;
+      --stone-light: #b5aea6;
+      --ink: #2a2420;
+      --ink-soft: #4a3f3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    .article-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 2rem 3.5rem;
+      overflow: hidden;
+      background-color: #2a2420;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,24,16,0.9) 0%, rgba(30,24,16,0.2) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .hero-series {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title em { font-style: italic; color: var(--terracotta-light); }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--stone-light);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .hero-meta-item {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone-light);
+      opacity: 0.7;
+    }
+
+    .hero-divider { width: 1px; height: 14px; background: var(--stone); opacity: 0.4; }
+
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .article-body p {
+      font-family: 'Lora', serif;
+      font-size: 1.08rem;
+      color: var(--ink-soft);
+      line-height: 1.95;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+    }
+
+    .article-body em { font-style: italic; color: var(--terracotta); }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+
+    .pull-quote { border-left: 3px solid var(--terracotta); margin: 2.5rem 0 2.5rem 1rem; padding: 0.5rem 0 0.5rem 1.8rem; }
+    .pull-quote p { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: 1.25rem !important; color: var(--forest) !important; line-height: 1.6 !important; margin-bottom: 0 !important; }
+
+    .history-box { background: var(--cream); border: 1px solid var(--terracotta-pale); border-radius: 2px; padding: 2rem 2.2rem; margin: 3rem 0; position: relative; }
+    .history-box::before { content: 'Identity'; position: absolute; top: -0.6rem; left: 1.5rem; background: var(--cream); padding: 0 0.5rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); }
+    .history-box p { font-family: 'DM Sans', sans-serif !important; font-size: 0.93rem !important; color: var(--stone) !important; line-height: 1.85 !important; margin-bottom: 0 !important; }
+
+    .photo-block { margin: 2.5rem -1rem; position: relative; }
+    .photo-block img { width: 100%; display: block; object-fit: cover; border-radius: 1px; }
+    .photo-caption { font-size: 0.78rem; color: var(--stone-light); letter-spacing: 0.06em; font-style: italic; margin-top: 0.6rem; padding: 0 1rem; text-align: center; }
+
+    .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 2.5rem -1rem; }
+    .photo-pair img { width: 100%; display: block; object-fit: cover; height: 320px; border-radius: 1px; }
+
+    .photo-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin: 2.5rem -1rem; }
+    .photo-trio img { width: 100%; display: block; object-fit: cover; height: 220px; border-radius: 1px; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); text-decoration: none; margin-bottom: 3rem; border-bottom: 1px solid var(--terracotta-pale); padding-bottom: 1px; transition: border-color 0.2s; }
+    .back-link:hover { border-color: var(--terracotta); }
+
+    footer { background: var(--ink); color: var(--stone-light); text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; letter-spacing: 0.05em; }
+    footer span { color: var(--terracotta-light); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .photo-pair, .photo-trio { grid-template-columns: 1fr; gap: 0.8rem; }
+      .photo-pair img, .photo-trio img { height: 280px; }
+      .article-hero { min-height: 55vh; }
+    }
+
+    .article-also { max-width: 680px; margin: 2rem auto; padding: 2rem 2rem 0; border-top: 1px solid var(--terracotta-pale); }
+    .also-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.8rem; }
+    .also-link { font-family: 'Lora', serif; font-size: 1.1rem; color: var(--forest); text-decoration: none; display: inline-block; }
+    .also-link:hover { color: var(--terracotta); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#series">Series</a></li>
+      <li><a href="index.html#notes">Notes</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-hero">
+    <img class="hero-bg" src="images/muralesfamosoaielli.jpg" alt="Famous geometric mural by Okuda San Miguel in Aielli, Abruzzo" />
+    <div class="hero-inner">
+      <p class="hero-series">🌿 Village Diaries &nbsp;·&nbsp; №3</p>
+      <h1 class="hero-title"><em>Aielli</em></h1>
+      <p class="hero-subtitle">Resilience Written on Walls</p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">Marsica Region</span>
+        <span class="hero-divider"></span>
+        <span class="hero-meta-item">Abruzzo</span>
+        <span class="hero-divider"></span>
+        <span class="hero-meta-item">July 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-wrap">
+
+    <a class="back-link fade-in" href="index.html">← Back to Greenwingo</a>
+
+    <div class="article-body">
+
+      <p class="fade-in">There are places we visit for a long time before we truly begin to see them. I used to come to Aielli years ago, as a young girl, for a Saturday night pizza. It was a lighthearted ritual, a carefree moment shared with family. In those years, I wasn’t looking at the village; I was looking at the life I had ahead of me, and the town was just the faded backdrop of an ordinary evening.</p>
+
+      <p class="fade-in">I returned recently, on a regular weekday, with a different intention. I deliberately chose the silence: no festival, no event, no crowds of tourists filling the alleys. I wanted to strip this place of its festive attire to find its essence, to understand what remains of a village when the spotlights go out and only its ordinary rhythm is left.</p>
+
+      <div class="history-box fade-in">
+        <p>Aielli welcomes you from its altitude of 1,020 meters, clinging to a rocky spur that dominates the Fucino plain. From up here, geography becomes emotion: on one side, your gaze is lost in the immense basin that once held a lake and is now a checkerboard of farmland stretching to the horizon; on the other side is Celano, with its severe mountains and the valley cutting sharply between them.</p>
+      </div>
+
+      <p class="fade-in">The transition begins during the climb. Then, all of a sudden, the first murals appear. They are bold, immediate splashes of color. It is the calling card of a community that decided to respond to depopulation with a visual revolution.</p>
+
+      <div class="photo-pair fade-in">
+        <img src="images/salitapiazzaaielli.jpg" alt="Narrow medieval alley climbing towards the piazza in Aielli, Abruzzo" />
+        <img src="images/belvedereaielli.jpg" alt="Panoramic view of the mountains and valley near Celano from Aielli belvedere" />
+      </div>
+
+      <p class="fade-in">Leaving the car in the main square, we head toward the highest point. The alleyways are quiet, inhabited by isolated footsteps and the clattering of construction sites healing wounds left by time. We reach the belvedere, nearby, stone turns into literature: Dante's entire <em>Divina Commedia</em> has been transcribed onto a monumental wall. Close by are curious installations made of recycled materials, dialoguing with the architecture.</p>
+
+      <div class="photo-trio fade-in">
+        <img src="images/panchinabelvedereaielli.jpg" alt="A quiet bench overlooking the panoramic view at the belvedere in Aielli, Abruzzo" />
+        <img src="images/muralesdivinacomediaaielli.jpg" alt="The complete text of Dante's Divine Comedy written on a long wall in Aielli, Abruzzo" />
+        <img src="images/oggettidiricicloaielli.jpg" alt="Creative street art installation made from recycled objects in Aielli, Abruzzo" />
+      </div>
+
+      <p class="fade-in">The climb culminates at the <em>Torre delle Stelle</em> (Tower of the Stars). Built in 1356 serving medieval defense Scan the ground below to defend against enemies on the plain. In 2002, however, this stone cylinder completely flipped its perspective: transformed into an astronomical observatory and planetarium, today it no longer looks down at the earth, but points straight toward the infinite.</p>
+
+      <div class="pull-quote fade-in">
+        <p>This stone cylinder completely flipped its perspective: today it no longer looks down at the earth, but points straight toward the infinite.</p>
+      </div>
+
+      <div class="photo-trio fade-in">
+        <img src="images/torredellestelleaielli.jpg" alt="The medieval Torre delle Stelle, now an astronomical observatory, in Aielli, Abruzzo" />
+        <img src="images/torredellestelleaielli (2).jpg" alt="Medieval Torre delle Stelle framed by modern cosmic street art in Aielli, Abruzzo" />
+        <img src="images/bibliotecamuralesaiellipiazzatorre.jpg" alt="Murals related to stars and constellations in the piazza by the Torre delle Stelle in Aielli, Abruzzo" />
+      </div>
+
+      <p class="fade-in">Right beneath the tower, another monumental wall hosts the complete text of Ignazio Silone’s novel, <em>Fontamara</em>, written word for word. Set right in this peasant land, the novel seems to inhabit that wall completely naturally.</p>
+
+      <div class="photo-block fade-in">
+        <img src="images/romanzofontamaramurales.jpg" alt="Monumental mural of Ignazio Silone's complete novel Fontamara written on a wall in Aielli, Abruzzo" />
+        <p class="photo-caption">Words of Fontamara, anchoring the village's identity in Marsican resilience.</p>
+      </div>
+
+      <p class="fade-in">Descending the steps, we immerse ourselves in authentic life. Balconies are filled with flowers and the alleys narrow around homes. The murals blend into everyday life; some evoke peace, while others play with the warm colors of space.</p>
+
+      <div class="photo-pair fade-in">
+        <img src="images/muralestestopaceaielli.jpg" alt="Street art featuring the word 'Pace' (Peace) in Aielli, Abruzzo" />
+        <img src="images/muralesastronautaaielli.jpg" alt="Cosmic street art mural of an astronaut in a narrow medieval alley in Aielli, Abruzzo" />
+      </div>
+
+      <p class="fade-in">I stop to observe two adjacent houses: one worn by time, peeling and ancient; the other perfectly restored and decorated. Here, the present does not erase the past, and contemporary art is not a trick to hide the old age of the walls. It is a patina that adorns them.</p>
+
+      <div class="photo-pair fade-in">
+        <img src="images/casanuovavicinocasavecchiaaielli.jpg" alt="Worn ancient house next to a newly restored decorated house in Aielli, Abruzzo" />
+        <img src="images/casavecchiamuratachiusaaielli.jpg" alt="Peeling facade of an ancient abandoned house with a sealed door in Aielli, Abruzzo" />
+      </div>
+
+      <p class="fade-in">I enter a small gallery and find myself in front of the facade of the <em>Chiesa della Santissima Trinità</em>, an ancient church dating back to the fourteenth century. Inside, a Mass is being celebrated. The priest talks about emptiness of the soul, deep loneliness affecting those without inner word to follow.</p>
+
+      <div class="photo-trio fade-in">
+        <img src="images/muralesaielli.jpg" alt="Vibrant geometric mural art in a tunnel passage in Aielli, Abruzzo" />
+        <img src="images/muralesaielli2.jpg" alt="Colorful cosmic street art mural featuring stars and a face in Aielli, Abruzzo" />
+        <img src="images/muralesaielli3.jpg" alt="Artistic mural of a face looking towards stars in a medieval alley of Aielli, Abruzzo" />
+      </div>
+
+      <p class="fade-in">We are used to thinking of wisdom as heritage of old age. But in our societies, it is precisely the young who are afraid. Suffer not for lack of spirituality, but from absence of a guide—a beacon to show them a path and offer a perspective of optimism for the future.</p>
+
+      <div class="photo-block fade-in">
+        <img src="images/murales4aielli.jpg" alt="Mural of a child reaching for stars, symbolizing hope and perspective in Aielli, Abruzzo" />
+        <p class="photo-caption">Finding deep reflections where you least expect them.</p>
+      </div>
+
+      <p class="fade-in">As I step out of the church, the village reclaims its collective breath: young people gather for aperitivo, elderly sit outside their front doors chatting about everything. Here, alienating loneliness does not exist. The past remains the solid foundation upon which the future rests.</p>
+
+      <div class="photo-block fade-in">
+        <img src="images/roseviuzzeaielli.jpg" alt="Vibrant red roses growing along a narrow, colorful medieval alley in Aielli, Abruzzo" />
+        <p class="photo-caption">Where nature and community stubbornly remain.</p>
+      </div>
+
+      <div class="pull-quote fade-in">
+        <p>I left carrying the same pizza from back then. But this time, in the rearview mirror, I left behind a place that I had finally looked straight in the eye.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="article-also fade-in">
+    <p class="also-label">Read also</p>
+    <a class="also-link" href="villalago.html">Villalago — Village Diaries №1 →</a>
+  </div>
+
+  <footer>
+    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2026</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
