@@ -338,7 +338,7 @@
     /* ── SERIES CARDS ── */
     .series-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-bottom: 5rem;
     }
@@ -811,15 +811,15 @@
       <button class="slide-arrow next" onclick="changeSlide(1)">&#8250;</button>
     </div>
 
-    <!-- PALLINI DIRETTAMENTE COLLEGATI AL CALCOLO DELLE 9 FOTO -->
     <div class="slideshow-dots" id="dots"></div>
 
+    <!-- GRIGLIA AGGIORNATA CON AIELLI DENTRO LA SEZIONE VILLAGE DIARIES -->
     <div class="series-grid">
       <a class="series-card fade-in" href="villalago.html">
         <div class="card-thumb village-diaries">
           <span class="card-series-label">Series I</span>
           <span class="card-icon">🌿</span>
-          <h3 class="card-title">Village Diaries</h3>
+          <h3 class="card-title">Village Diaries — Villalago</h3>
         </div>
         <div class="card-body">
           <p class="card-desc">Living villages — still inhabited, still breathing. Stories of the people, the rituals, and the quiet rhythms that hold a community together.</p>
@@ -827,11 +827,23 @@
         </div>
       </a>
 
+      <a class="series-card fade-in" href="aielli.html">
+        <div class="card-thumb village-diaries">
+          <span class="card-series-label">Series I</span>
+          <span class="card-icon">🎨</span>
+          <h3 class="card-title">Village Diaries — Aielli</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">An open-air canvas under the Fucino sky. Where history meets contemporary murals, turning old walls into permanent poetry.</p>
+          <p class="card-count">Ready — №2 Aielli</p>
+        </div>
+      </a>
+
       <a class="series-card fade-in" href="buonanotte.html">
         <div class="card-thumb ghost-villages">
           <span class="card-series-label">Series II</span>
           <span class="card-icon">🏚</span>
-          <h3 class="card-title">Ghost Villages</h3>
+          <h3 class="card-title">Ghost Villages — Buonanotte</h3>
         </div>
         <div class="card-body">
           <p class="card-desc">Abandoned, silent, slowly returning to the earth. Villages where the walls remember everything the people left behind.</p>
@@ -853,11 +865,20 @@
     </div>
   </section>
 
+  <!-- SEZIONE NOTES AGGIORNATA CON IL NUOVO ARTICOLO SU AIELLI (THIRD ARTICLE IN ORDINE CRONOLOGICO) -->
   <section class="notes-section" id="notes">
     <div class="notes-inner">
       <p class="notes-label fade-in">Notes &amp; Finds</p>
       <h2 class="notes-title fade-in">Thoughts, links,<br>and <em>things worth sharing</em></h2>
       <p class="notes-sub fade-in">A small corner for whatever does not fit an article.</p>
+
+      <div class="note-item fade-in">
+        <span class="note-date">June 2026</span>
+        <div class="note-body">
+          <p class="note-text">Third article out — Aielli, the astronomy village coated in vibrant street art. A perfect crossroad between constellations, poetry, and slow walking.</p>
+          <a class="note-link" href="aielli.html">Read the article</a>
+        </div>
+      </div>
 
       <div class="note-item fade-in">
         <span class="note-date">May 2026</span>
@@ -924,7 +945,6 @@
     }, { threshold: 0.05 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-    // ARCHITETTURA RIGOROSA: 7 DIAPOSITIVE DESKTOP, 9 DIAPOSITIVE SU MOBILE
     const isMobile = () => window.innerWidth <= 600;
     let current = 0;
     let timer;
@@ -954,21 +974,18 @@
       dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
 
       if (!isMobile()) {
-        // LOGICA DESKTOP (7 Posizioni)
         slides.forEach(s => s.className = 'slide');
         
-        if (current === 0) slides[0].classList.add('active'); // Mappa trittico sul primo stato
+        if (current === 0) slides[0].classList.add('active'); 
         if (current === 1) slides[1].classList.add('active');
         if (current === 2) slides[2].classList.add('active');
-        if (current === 3) slides[3].classList.add('active'); // Villalago Daini
-        if (current === 4) slides[4].classList.add('active'); // Buonanotte 6
-        if (current === 5) slides[5].classList.add('active'); // Aielli Salita
-        if (current === 6) slides[6].classList.add('active'); // Aielli Belvedere
-        // (Le slide 7 e 8 contengono le restanti foto, caricate in sequenza fluida)
+        if (current === 3) slides[3].classList.add('active'); 
+        if (current === 4) slides[4].classList.add('active'); 
+        if (current === 5) slides[5].classList.add('active'); 
+        if (current === 6) slides[6].classList.add('active'); 
         if (current === 5) slides[5].classList.add('active');
         if (current === 6) slides[6].classList.add('active');
       } else {
-        // LOGICA MOBILE FLUIDA (9 Foto Singole)
         slides.forEach(s => {
           s.className = 'slide';
           s.style.transform = 'translateY(100%)';
@@ -996,7 +1013,6 @@
       }
     }
 
-    // Gestione swipe verticale preciso per mobile
     let touchStartY = 0;
     let touchEndY = 0;
 
