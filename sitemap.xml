@@ -5,6 +5,10 @@
 <priority>1.0</priority>
 </url>
 <url>
+<loc>https://greenwingo.blog/aielli.html</loc>
+<priority>0.8</priority>
+</url>
+<url>
 <loc>https://greenwingo.blog/buonanotte.html</loc>
 <priority>0.8</priority>
 </url>
@@ -13,7 +17,12 @@
 <priority>0.8</priority>
 </url>
 <url>
+<loc>https://greenwingo.blog/beyond-the-phone-gallery.html</loc>
+<priority>0.7</priority>
+</url>
+<url>
 <loc>https://greenwingo.blog/notes.html</loc>
 <priority>0.6</priority>
 </url>
 </urlset>
+ 
