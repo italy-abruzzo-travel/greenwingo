@@ -744,7 +744,7 @@
     <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
     <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
 
-    <!-- SLIDESHOW PRINCIPALE (9 FOTO IN TOTALE) -->
+    <!-- SLIDESHOW PRINCIPALE (11 FOTO IN TOTALE) -->
     <div class="slideshow-wrapper fade-in" id="slideshow">
 
       <!-- SLIDE 1 (Desktop: Trittico 1a colonna | Mobile: Foto 1 - Villalago Sfondo) -->
@@ -807,6 +807,16 @@
         <div class="slide-overlay"></div>
       </div>
 
+      <!-- SLIDE 10 (Foto 10 - Canistro, Fontana con le Maschere) -->
+      <div class="slide" style="background-image: url('images/fontanaconmaschereCanistroSuperiore.JPG');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- SLIDE 11 (Foto 11 - Canistro, Panchina nel Bosco con vista Valle Roveto) -->
+      <div class="slide" style="background-image: url('images/panchinanelboscoCanistroSuperiore.JPG');">
+        <div class="slide-overlay"></div>
+      </div>
+
       <button class="slide-arrow prev" onclick="changeSlide(-1)">&#8249;</button>
       <button class="slide-arrow next" onclick="changeSlide(1)">&#8250;</button>
     </div>
@@ -839,6 +849,18 @@
         </div>
       </a>
 
+      <a class="series-card fade-in" href="canistro.html">
+        <div class="card-thumb village-diaries">
+          <span class="card-series-label">Village Diaries №3</span>
+          <span class="card-icon">💧</span>
+          <h3 class="card-title">Canistro</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">A village built around water — fountains everywhere, an emigration story carved into stone, and a Sunday that started at the Parco della Sponga.</p>
+          <p class="card-count">Read the article</p>
+        </div>
+      </a>
+
       <a class="series-card fade-in" href="buonanotte.html">
         <div class="card-thumb ghost-villages">
           <span class="card-series-label">Ghost Villages №1</span>
@@ -856,21 +878,29 @@
   <section class="coming-section" id="coming">
     <div class="coming-inner">
       <p class="coming-eyebrow fade-in">Latest Article</p>
-      <h2 class="coming-title fade-in"><em>Aielli</em> — Borgo Universo</h2>
+      <h2 class="coming-title fade-in"><em>Canistro</em> — Following the Water</h2>
       <p class="coming-text fade-in">
-        The village painted back to life. Constellations, murals, and the poetry that covers every wall.
-        A place where street art becomes a way of remembering.
+        A Sunday that starts at the Parco della Sponga and climbs to a village where every fountain still runs.
+        Emigration, memory, and the water that ties it all together.
       </p>
-      <a href="aielli.html" class="coming-link fade-in">Read the article →</a>
+      <a href="canistro.html" class="coming-link fade-in">Read the article →</a>
     </div>
   </section>
 
-  <!-- SEZIONE NOTES AGGIORNATA CON IL NUOVO ARTICOLO SU AIELLI (THIRD ARTICLE IN ORDINE CRONOLOGICO) -->
+  <!-- SEZIONE NOTES AGGIORNATA CON IL NUOVO ARTICOLO SU CANISTRO (FOURTH ARTICLE IN ORDINE CRONOLOGICO) -->
   <section class="notes-section" id="notes">
     <div class="notes-inner">
       <p class="notes-label fade-in">Notes &amp; Finds</p>
       <h2 class="notes-title fade-in">Thoughts, links,<br>and <em>things worth sharing</em></h2>
       <p class="notes-sub fade-in">A small corner for whatever does not fit an article.</p>
+
+      <div class="note-item fade-in">
+        <span class="note-date">July 2026</span>
+        <div class="note-body">
+          <p class="note-text">Fourth article out — Canistro (Following the Water), a village built entirely around its fountains. Starts at the Parco della Sponga and climbs through an emigration exhibit, a chapel in the chestnut woods, and the Liri river.</p>
+          <a class="note-link" href="canistro.html">Read the article</a>
+        </div>
+      </div>
 
       <div class="note-item fade-in">
         <span class="note-date">June 2026</span>
@@ -955,7 +985,7 @@
 
     function setupDots() {
       dotsContainer.innerHTML = '';
-      const totalDots = isMobile() ? 9 : 7; 
+      const totalDots = isMobile() ? 11 : 9; 
       
       for (let i = 0; i < totalDots; i++) {
         const btn = document.createElement('button');
@@ -966,7 +996,7 @@
     }
 
     function goToSlide(n) {
-      const total = isMobile() ? 9 : 7;
+      const total = isMobile() ? 11 : 9;
       const prevIndex = current;
       current = (n + total) % total;
 
@@ -975,14 +1005,7 @@
 
       if (!isMobile()) {
         slides.forEach(s => s.className = 'slide');
-        
-        if (current === 0) slides[0].classList.add('active'); 
-        if (current === 1) slides[1].classList.add('active');
-        if (current === 2) slides[2].classList.add('active');
-        if (current === 3) slides[3].classList.add('active'); 
-        if (current === 4) slides[4].classList.add('active'); 
-        if (current === 5) slides[5].classList.add('active'); 
-        if (current === 6) slides[6].classList.add('active'); 
+        if (slides[current]) slides[current].classList.add('active');
       } else {
         slides.forEach(s => {
           s.className = 'slide';
@@ -1000,7 +1023,6 @@
     }
 
     function changeSlide(dir) { 
-      const total = isMobile() ? 9 : 7;
       goToSlide(current + dir); 
     }
 
