@@ -362,22 +362,27 @@
       padding: 1.5rem;
       position: relative;
       overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
     }
 
     .card-thumb.village-diaries {
-      background: linear-gradient(160deg, var(--forest) 0%, #2c4a2e 60%, #1e3020 100%);
+      background-color: var(--forest);
     }
 
     .card-thumb.ghost-villages {
-      background: linear-gradient(160deg, #4a4038 0%, #2e2820 60%, #1e1810 100%);
+      background-color: #2e2820;
     }
 
     .card-thumb::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 70% 30%, rgba(196,98,45,0.18) 0%, transparent 60%);
+      background: linear-gradient(180deg, rgba(20,16,10,0.12) 0%, rgba(20,16,10,0.15) 45%, rgba(15,12,8,0.82) 100%);
     }
+
+    .series-card:hover .card-thumb { transform: scale(1.04); }
 
     .card-series-label {
       position: absolute;
@@ -744,7 +749,7 @@
     <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
     <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
 
-    <!-- SLIDESHOW PRINCIPALE (11 FOTO IN TOTALE) -->
+    <!-- SLIDESHOW PRINCIPALE (12 FOTO IN TOTALE) -->
     <div class="slideshow-wrapper fade-in" id="slideshow">
 
       <!-- SLIDE 1 (Desktop: Trittico 1a colonna | Mobile: Foto 1 - Villalago Sfondo) -->
@@ -787,33 +792,38 @@
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 6 (Foto 6 - Aielli Salita Piazza) -->
-      <div class="slide" style="background-image: url('images/salitapiazzaaielli.jpg');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 7 (Foto 7 - Aielli Belvedere) -->
+      <!-- SLIDE 6 (Foto 6 - Aielli Belvedere) -->
       <div class="slide" style="background-image: url('images/belvedereaielli.jpg');">
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 8 (Foto 8 - Aielli Murales Astronauta) -->
+      <!-- SLIDE 7 (Foto 7 - Aielli Murales Astronauta) -->
       <div class="slide" style="background-image: url('images/muralesastronautaaielli.jpg');">
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 9 (Foto 9 - Aielli Chiesa) -->
-      <div class="slide" style="background-image: url('images/chiesaaielli.jpg');">
+      <!-- SLIDE 8 (Foto 8 - Aielli Murales Famoso) -->
+      <div class="slide" style="background-image: url('images/muralesfamosoaielli.jpg');">
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 10 (Foto 10 - Canistro, Fontana con le Maschere) -->
+      <!-- SLIDE 9 (Foto 9 - Canistro, Fontana con le Maschere) -->
       <div class="slide" style="background-image: url('images/fontanaconmaschereCanistroSuperiore2.JPG');">
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 11 (Foto 11 - Canistro, Panchina nel Bosco con vista Valle Roveto) -->
+      <!-- SLIDE 10 (Foto 10 - Canistro, Panchina nel Bosco con vista Valle Roveto) -->
       <div class="slide" style="background-image: url('images/panchinanelboscoCanistroSuperiore.JPG');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- SLIDE 11 (Foto 11 - Cascata Parco della Sponga) -->
+      <div class="slide" style="background-image: url('images/cascatalaspongacanistro.JPG');">
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- SLIDE 12 (Foto 12 - Capistrello Vecchio) -->
+      <div class="slide" style="background-image: url('images/CapistrelloVecchio.JPG');">
         <div class="slide-overlay"></div>
       </div>
 
@@ -826,9 +836,8 @@
     <!-- GRIGLIA VILLAGE DIARIES + GHOST VILLAGES CON ARTICOLI SPECIFICI -->
     <div class="series-grid">
       <a class="series-card fade-in" href="villalago.html">
-        <div class="card-thumb village-diaries">
+        <div class="card-thumb village-diaries" style="background-image: url('images/villalagofotosfondo.jpg');">
           <span class="card-series-label">Village Diaries №1</span>
-          <span class="card-icon">🌿</span>
           <h3 class="card-title">Villalago</h3>
         </div>
         <div class="card-body">
@@ -838,9 +847,8 @@
       </a>
 
       <a class="series-card fade-in" href="aielli.html">
-        <div class="card-thumb village-diaries">
+        <div class="card-thumb village-diaries" style="background-image: url('images/romanzofontamaramurales.jpg');">
           <span class="card-series-label">Village Diaries №2</span>
-          <span class="card-icon">🌿</span>
           <h3 class="card-title">Aielli</h3>
         </div>
         <div class="card-body">
@@ -850,10 +858,9 @@
       </a>
 
       <a class="series-card fade-in" href="canistro.html">
-        <div class="card-thumb village-diaries">
+        <div class="card-thumb village-diaries" style="background-image: url('images/fontanaconmaschereCanistroSuperiore2.JPG');">
           <span class="card-series-label">Village Diaries №3</span>
-          <span class="card-icon">💧</span>
-          <h3 class="card-title">Canistro</h3>
+          <h3 class="card-title">Valle Roveto &amp; Canistro</h3>
         </div>
         <div class="card-body">
           <p class="card-desc">A village built around water — fountains everywhere, an emigration story carved into stone, and a Sunday that started at the Parco della Sponga.</p>
@@ -862,9 +869,8 @@
       </a>
 
       <a class="series-card fade-in" href="buonanotte.html">
-        <div class="card-thumb ghost-villages">
+        <div class="card-thumb ghost-villages" style="background-image: url('images/buonanottefoto3.jpg');">
           <span class="card-series-label">Ghost Villages №1</span>
-          <span class="card-icon">🏚</span>
           <h3 class="card-title">Buonanotte</h3>
         </div>
         <div class="card-body">
@@ -878,7 +884,7 @@
   <section class="coming-section" id="coming">
     <div class="coming-inner">
       <p class="coming-eyebrow fade-in">Latest Article</p>
-      <h2 class="coming-title fade-in"><em>Canistro</em> — Following the Water</h2>
+      <h2 class="coming-title fade-in"><em>Valle Roveto &amp; Canistro</em> — A Generous Land</h2>
       <p class="coming-text fade-in">
         A Sunday that starts at the Parco della Sponga and climbs to a village where every fountain still runs.
         Emigration, memory, and the water that ties it all together.
@@ -897,7 +903,7 @@
       <div class="note-item fade-in">
         <span class="note-date">July 2026</span>
         <div class="note-body">
-          <p class="note-text">Fourth article out — Canistro (Following the Water), a village built entirely around its fountains. Starts at the Parco della Sponga and climbs through an emigration exhibit, a chapel in the chestnut woods, and the Liri river.</p>
+          <p class="note-text">Fourth article out — Valle Roveto & Canistro (A Generous Land), a village built entirely around its fountains. Starts at the Parco della Sponga and climbs through an emigration exhibit, a chapel in the chestnut woods, and the Liri river.</p>
           <a class="note-link" href="canistro.html">Read the article</a>
         </div>
       </div>
@@ -985,7 +991,7 @@
 
     function setupDots() {
       dotsContainer.innerHTML = '';
-      const totalDots = isMobile() ? 11 : 9; 
+      const totalDots = slides.length; 
       
       for (let i = 0; i < totalDots; i++) {
         const btn = document.createElement('button');
@@ -996,7 +1002,7 @@
     }
 
     function goToSlide(n) {
-      const total = isMobile() ? 11 : 9;
+      const total = slides.length;
       const prevIndex = current;
       current = (n + total) % total;
 
