@@ -685,30 +685,22 @@
       }
 
       .slide-grid { 
-        display: block;
-        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+        padding: 0.6rem;
         width: 100%;
         height: 100%;
         background: transparent;
       }
       
       .mini-photo {
-        display: none;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 2px;
         opacity: 1 !important;
         transform: none !important;
-      }
-
-      /* Attivazione della singola foto mobile dentro la slide Trittico */
-      .slide-grid.show-photo-1 .mini-photo:nth-child(1) { display: block; }
-      .slide-grid.show-photo-2 .mini-photo:nth-child(2) { display: block; }
-      .slide-grid.show-photo-3 .mini-photo:nth-child(3) { display: block; }
-
-      .slide[style*="background-image"] {
-        height: 100%;
-        border-radius: 2px;
       }
 
       .slideshow-dots { 
@@ -718,6 +710,27 @@
       }
       .slide-arrow { display: none !important; }
     }
+    .mini-photo { cursor: zoom-in; }
+
+    .lightbox-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(20,16,12,0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 3rem 1.5rem;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img {
+      max-width: 100%; max-height: 100%;
+      border-radius: 2px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.5rem;
+      color: var(--cream); font-size: 1.6rem; line-height: 1;
+      background: none; border: none; cursor: pointer; opacity: 0.7;
+    }
+    .lightbox-close:hover { opacity: 1; }
   </style>
 </head>
 <body>
@@ -750,12 +763,12 @@
     <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
     <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
 
-    <!-- SLIDESHOW PRINCIPALE (12 FOTO IN TOTALE) -->
+    <!-- SLIDESHOW PRINCIPALE (4 GRUPPI DA 3 FOTO = 4 PUNTINI) -->
     <div class="slideshow-wrapper fade-in" id="slideshow">
 
-      <!-- SLIDE 1 (Desktop: Trittico 1a colonna | Mobile: Foto 1 - Villalago Sfondo) -->
+      <!-- GRUPPO 1: Villalago + Buonanotte -->
       <div class="slide">
-        <div class="slide-grid show-photo-1">
+        <div class="slide-grid">
           <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
           <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
           <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
@@ -763,68 +776,33 @@
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 2 (Desktop: Trittico 2a colonna | Mobile: Foto 2 - Villalago Eremo) -->
+      <!-- GRUPPO 2: Villalago Daini, Buonanotte, Aielli Belvedere -->
       <div class="slide">
-        <div class="slide-grid show-photo-2">
-          <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
-          <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
-          <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
+        <div class="slide-grid">
+          <img src="images/villalagodaini.jpg" class="mini-photo" alt="Villalago Daini">
+          <img src="images/buonanotte6.jpg" class="mini-photo" alt="Buonanotte">
+          <img src="images/belvedereaielli.jpg" class="mini-photo" alt="Aielli Belvedere">
         </div>
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 3 (Desktop: Trittico 3a colonna | Mobile: Foto 3 - Buonanotte Dettaglio) -->
+      <!-- GRUPPO 3: Aielli Murales Astronauta, Murales Famoso, Canistro Fontana Maschere -->
       <div class="slide">
-        <div class="slide-grid show-photo-3">
-          <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
-          <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
-          <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
+        <div class="slide-grid">
+          <img src="images/muralesastronautaaielli.jpg" class="mini-photo" alt="Aielli Murales Astronauta">
+          <img src="images/muralesfamosoaielli.jpg" class="mini-photo" alt="Aielli Murales Famoso">
+          <img src="images/fontanaconmaschereCanistroSuperiore2.JPG" class="mini-photo" alt="Canistro Fontana con le Maschere">
         </div>
         <div class="slide-overlay"></div>
       </div>
 
-      <!-- SLIDE 4 (Foto 4 - Villalago Daini) -->
-      <div class="slide" style="background-image: url('images/villalagodaini.jpg');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 5 (Foto 5 - Buonanotte 6) -->
-      <div class="slide" style="background-image: url('images/buonanotte6.jpg');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 6 (Foto 6 - Aielli Belvedere) -->
-      <div class="slide" style="background-image: url('images/belvedereaielli.jpg');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 7 (Foto 7 - Aielli Murales Astronauta) -->
-      <div class="slide" style="background-image: url('images/muralesastronautaaielli.jpg');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 8 (Foto 8 - Aielli Murales Famoso) -->
-      <div class="slide" style="background-image: url('images/muralesfamosoaielli.jpg');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 9 (Foto 9 - Canistro, Fontana con le Maschere) -->
-      <div class="slide" style="background-image: url('images/fontanaconmaschereCanistroSuperiore2.JPG');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 10 (Foto 10 - Canistro, Panchina nel Bosco con vista Valle Roveto) -->
-      <div class="slide" style="background-image: url('images/panchinanelboscoCanistroSuperiore.JPG');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 11 (Foto 11 - Cascata Parco della Sponga) -->
-      <div class="slide" style="background-image: url('images/cascatalaspongacanistro.JPG');">
-        <div class="slide-overlay"></div>
-      </div>
-
-      <!-- SLIDE 12 (Foto 12 - Capistrello Vecchio) -->
-      <div class="slide" style="background-image: url('images/CapistrelloVecchio.JPG');">
+      <!-- GRUPPO 4: Canistro Panchina, Cascata Sponga, Capistrello -->
+      <div class="slide">
+        <div class="slide-grid">
+          <img src="images/panchinanelboscoCanistroSuperiore.JPG" class="mini-photo" alt="Canistro Panchina nel Bosco">
+          <img src="images/cascatalaspongacanistro.JPG" class="mini-photo" alt="Cascata Parco della Sponga">
+          <img src="images/CapistrelloVecchio.JPG" class="mini-photo" alt="Capistrello Vecchio">
+        </div>
         <div class="slide-overlay"></div>
       </div>
 
@@ -833,6 +811,11 @@
     </div>
 
     <div class="slideshow-dots" id="dots"></div>
+
+    <div class="lightbox-overlay" id="lightbox">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
 
     <!-- GRIGLIA VILLAGE DIARIES + GHOST VILLAGES CON ARTICOLI SPECIFICI -->
     <div class="series-grid">
@@ -1063,6 +1046,21 @@
 
     window.addEventListener('resize', () => { setupDots(); goToSlide(0); });
     document.addEventListener("DOMContentLoaded", () => { setupDots(); goToSlide(0); });
+
+    // Lightbox: click any slideshow photo to view it enlarged
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.mini-photo').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+      });
+    });
+    function closeLightbox() { lightbox.classList.remove('active'); }
+    lightbox.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 
 </body>
