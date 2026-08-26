@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PK5HE4096N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PK5HE4096N');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Avezzano as a base for exploring the Marsica: how to get there, what to see in town, and the villages, canyons, and ruins within easy reach — Aielli, Canistro, Villalago, Celano, Alba Fucens, Cocullo, and more.">
+  <meta property="og:title" content="Avezzano — Gateway to the Marsica · Greenwingo" />
+  <meta property="og:description" content="Avezzano as a base for exploring the Marsica: how to get there, what to see in town, and the villages, canyons, and ruins within easy reach." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://greenwingo.blog/avezzano.html" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:image" content="https://greenwingo.blog/favicon.png" />
+  <title>Avezzano — Gateway to the Marsica · Greenwingo</title>
+  <link rel="canonical" href="https://greenwingo.blog/avezzano.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --terracotta: #c4622d;
+      --terracotta-light: #d4754a;
+      --terracotta-pale: #f0d9cc;
+      --forest: #3a5a3c;
+      --forest-light: #5a7a5c;
+      --stone: #8c8278;
+      --stone-light: #b5aea6;
+      --ink: #2a2420;
+      --ink-soft: #4a3f3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      position: relative;
+      background: linear-gradient(160deg, var(--forest) 0%, #2c4a2e 60%, #1e3020 100%);
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 30%, rgba(196,98,45,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .page-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .page-header-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeUp 1.1s ease both;
+    }
+
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      opacity: 0.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .page-title em {
+      font-style: italic;
+      color: var(--terracotta-light);
+    }
+
+    .page-desc {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--stone-light);
+      line-height: 1.6;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .notes-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      margin-bottom: 4rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+    .back-link::before { content: '←'; font-size: 0.9rem; }
+
+    .note-content p {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 1.6rem;
+      font-weight: 400;
+    }
+
+    .note-content p.note-lead {
+      font-size: 1.15rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 0 0 0 1.5rem;
+      border-left: 3px solid var(--terracotta);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic;
+      font-size: 1.2rem !important;
+      color: var(--forest) !important;
+      line-height: 1.7 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .links-block {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--terracotta-pale);
+    }
+
+    .links-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.2rem;
+    }
+
+    .links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    .links-list a {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-pale);
+    }
+
+    .in-text-link {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-pale);
+    }
+
+    .loc {
+      color: var(--terracotta);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--stone-light);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer span { color: var(--terracotta-light); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#series">Series</a></li>
+      <li><a href="index.html#notes">Notes</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Travel Guide</p>
+      <h1 class="page-title"><span class="loc" style="color: var(--terracotta-light);">Avezzano</span> — <em>gateway to the Marsica</em></h1>
+      <p class="page-desc">Where to base yourself to discover a piece of Abruzzo</p>
+    </div>
+  </header>
+
+  <div class="notes-body">
+
+    <a class="back-link fade-in" href="index.html">Back to Greenwingo</a>
+
+    <div class="note-content">
+
+      <p class="note-lead fade-in"><span class="loc">Abruzzo</span> is one of the few Italian regions where, within a few hours, you can go from the snow-capped Apennines to the Adriatic coast — and its towns aren't just destinations in themselves, but starting points for everything around them.</p>
+
+      <p class="fade-in"><span class="loc">Avezzano</span> is one of these: the ideal base for anyone who wants to experience the <span class="loc">Marsica</span>, the inland, less-trodden soul of <span class="loc">Abruzzo</span>, without giving up comfort, services, or a pleasant evening life. Travelers from abroad can fly into Abruzzo International Airport in <span class="loc">Pescara</span>, about 115 km away, or reach <span class="loc">Avezzano</span> from <span class="loc">Rome</span> by regional train (roughly ninety minutes to Rome Termini) or by car along the A24.</p>
+
+      <p class="fade-in"><span class="loc">Avezzano</span> isn't just a stop along the way. From here it's easy to plan day trips to the villages, parks, and archaeological sites nearby, then come back into town for dinner, a stroll through <span class="loc">Piazza Risorgimento</span>, or an evening in one of the small towns close by, often enlivened by local festivals and patron saint celebrations in the warmer months. The town council runs a regular summer calendar too — "E Statt' Ecc'" brings live music, markets, and the occasional late-night shopping evening to the center. A new tourist Infopoint recently opened in <span class="loc">Largo Pomilio</span>, along the Corso coming down from the station, and by all accounts it's already seeing a steady flow of visitors.</p>
+
+      <div class="pull-quote fade-in">
+        <p>The town's own history is inseparable from <span style="color: var(--terracotta);">Lake Fucino</span> — once the third-largest natural lake in Italy, drained in the 19th century by the prince and banker Alessandro Torlonia.</p>
+      </div>
+
+      <p class="fade-in">What had been a vast expanse of water became one of the most fertile agricultural plains in central Italy, the <span class="loc">Piana del Fucino</span>, still visible today from the scenic points around town. A second, harder chapter came with the earthquake of 13 January 1915, one of the most devastating ever recorded in Italy, followed decades later by wartime bombing. Walking through <span class="loc">Avezzano</span> today means crossing a rebuilt town, its early-20th-century buildings standing alongside the few structures that survived both.</p>
+
+      <p class="fade-in">In town, the <span class="loc">Orsini-Colonna Castle</span> and <span class="loc">Villa Torlonia</span> are worth the time, along with the <span class="loc">Sanctuary of the Madonna di Pietraquaria</span> on <span class="loc">Monte Salviano</span> — which somehow survived both the earthquake and the bombing — and the <span class="loc">Claudius Tunnels</span>, an impressive piece of 1st-century Roman engineering built to try to regulate the ancient lake's waters — visits are by guided tour only, Sundays, booking required by phone.</p>
+
+      <p class="fade-in">It's from <span class="loc">Avezzano</span> that the rest of the <span class="loc">Marsica</span> opens up.</p>
+
+      <p class="fade-in"><span class="loc">Celano</span>, a few minutes away, has its Piccolomini Castle and the dramatic <span class="loc">Gole di Celano</span> canyon.</p>
+
+      <p class="fade-in"><span class="loc">Tagliacozzo</span>, among Italy's most beautiful villages, and <span class="loc">Ovindoli</span>, one of the region's main ski resorts, are both close by.</p>
+
+      <p class="fade-in"><span class="loc">Alba Fucens</span> — a Roman colony founded at the end of the 4th century BC — has its forum and amphitheater set at the foot of <span class="loc">Monte Velino</span>.</p>
+
+      <p class="fade-in">Further out, <span class="loc">Gioia dei Marsi</span> opens onto the Abruzzo, Lazio and Molise National Park, and <span class="loc">Pescina</span> keeps the memory of writer Ignazio Silone.</p>
+
+      <p class="fade-in">Some of these places I've already written about properly.</p>
+
+      <p class="fade-in"><a href="aielli.html" class="in-text-link">Aielli</a>, the "terrace of the Marsica," turned itself into an open-air gallery through street art.</p>
+
+      <p class="fade-in">The <a href="canistro.html" class="in-text-link">Valle Roveto and Canistro</a>, known across Italy for its mineral springs, is a whole generous world of its own.</p>
+
+      <p class="fade-in">And <a href="villalago.html" class="in-text-link">Villalago</a>, on the shore of the <span class="loc">Lago di San Domenico</span>, sits a short drive from <span class="loc">Scanno</span> and its famous heart-shaped lake.</p>
+
+      <p class="fade-in"><span class="loc">Cocullo</span> deserves its own mention: every 1st of May the village becomes the stage for the Festa dei Serpari, when the statue of San Domenico is carried through the streets covered in live snakes — one of the oldest and most striking folk rituals left in Abruzzo.</p>
+
+      <div class="pull-quote fade-in">
+        <p>Public transport reaches most of it, but a car is what turns a list of places into a trip you actually control.</p>
+      </div>
+
+      <p class="fade-in">TUA buses connect <span class="loc">Avezzano</span> to the main towns of the <span class="loc">Marsica</span>, and regional trains cover a few more, so it's entirely possible to get around without a car if you're not in a hurry. But many of the best spots — the <span class="loc">Gole di Celano</span>, the small mountain villages — sit outside the bus routes or run on a limited holiday schedule, and a car (your own, or rented locally) is what lets you chase a scenic viewpoint on a whim and still be back in <span class="loc">Avezzano</span> for dinner. Every one of these places is well signposted and well documented online these days — opening hours, bookings, entry tickets, all a search away — so the only real planning left is deciding how many days you have.</p>
+
+      <div class="links-block fade-in">
+        <p class="links-label">Useful links</p>
+        <ul class="links-list">
+          <li><a href="https://comune.avezzano.aq.it/" target="_blank" rel="noopener noreferrer">Comune di Avezzano</a> — the town council's official site, for the local events calendar and services.</li>
+          <li><a href="https://cultura.gov.it/evento/parco-archeologico-dei-cunicoli-di-claudio" target="_blank" rel="noopener noreferrer">Cunicoli di Claudio</a> — visiting info and booking (guided tours only, Sundays, reservation required by phone).</li>
+          <li><a href="https://cultura.gov.it/luogo/castello-piccolomini-collezione-torlonia-e-museo-d-arte-sacra-della-marsica" target="_blank" rel="noopener noreferrer">Castello Piccolomini, Celano</a> — opening hours and tickets for the castle and its sacred art museum.</li>
+          <li><a href="https://www.parcosirentevelino.it/gole_celano.php" target="_blank" rel="noopener noreferrer">Gole di Celano</a> — access info from the Parco Sirente-Velino, which manages the canyon. Open roughly May through October, booking required (limited daily capacity) — check weather conditions and bring proper gear (helmet, waterproof jacket, mountain footwear) before hiking the gorge.</li>
+          <li><a href="https://www.abruzzoturismo.it/it/destinazioni/sito-archeologico-di-alba-fucens-albe-aq" target="_blank" rel="noopener noreferrer">Alba Fucens</a> — the archaeological site, via the Regione Abruzzo tourism portal. Always accessible, no booking needed.</li>
+          <li><a href="https://www.abruzzoturismo.it/it/destinazioni/riserva-naturale-guidata-monte-salviano" target="_blank" rel="noopener noreferrer">Riserva Naturale Monte Salviano</a> — trails and info for the reserve overlooking Avezzano. Always accessible, no booking needed.</li>
+          <li><a href="https://www.ovindolimagnola.it/" target="_blank" rel="noopener noreferrer">Ovindoli — Monte Magnola</a> — the ski resort's official site, lift status and trail maps.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2026</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
