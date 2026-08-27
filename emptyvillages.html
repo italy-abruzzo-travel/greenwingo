@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PK5HE4096N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PK5HE4096N');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personal reflection on the depopulation of Abruzzo's inland villages — what's being lost, and the small signs of hope: roots tourism, €1 homes, and the film crews that keep falling for these places.">
+  <meta property="og:title" content="The Depopulation of Abruzzo's Villages · Greenwingo" />
+  <meta property="og:description" content="A personal reflection on the depopulation of Abruzzo's inland villages — what's being lost, and the small signs of hope." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://greenwingo.blog/empty-villages.html" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:image" content="https://greenwingo.blog/favicon.png" />
+  <title>The Depopulation of Abruzzo's Villages · Greenwingo</title>
+  <link rel="canonical" href="https://greenwingo.blog/empty-villages.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --terracotta: #c4622d;
+      --terracotta-light: #d4754a;
+      --terracotta-pale: #f0d9cc;
+      --forest: #3a5a3c;
+      --forest-light: #5a7a5c;
+      --stone: #8c8278;
+      --stone-light: #b5aea6;
+      --ink: #2a2420;
+      --ink-soft: #4a3f3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      position: relative;
+      background: linear-gradient(160deg, var(--forest) 0%, #2c4a2e 60%, #1e3020 100%);
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 30%, rgba(196,98,45,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .page-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .page-header-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeUp 1.1s ease both;
+    }
+
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      opacity: 0.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .page-title em {
+      font-style: italic;
+      color: var(--terracotta-light);
+    }
+
+    .page-desc {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--stone-light);
+      line-height: 1.6;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .notes-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      margin-bottom: 4rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+    .back-link::before { content: '←'; font-size: 0.9rem; }
+
+    .note-content p {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 1.6rem;
+      font-weight: 400;
+    }
+
+    .note-content p.note-lead {
+      font-size: 1.15rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 0 0 0 1.5rem;
+      border-left: 3px solid var(--terracotta);
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic;
+      font-size: 1.2rem !important;
+      color: var(--forest) !important;
+      line-height: 1.7 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .loc {
+      color: var(--terracotta);
+    }
+
+    .person {
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--stone-light);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer span { color: var(--terracotta-light); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#series">Series</a></li>
+      <li><a href="index.html#notes">Notes</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Reflection</p>
+      <h1 class="page-title">The villages that <em>empty out</em></h1>
+      <p class="page-desc">A wound, and a few reasons to hope</p>
+    </div>
+  </header>
+
+  <div class="notes-body">
+
+    <a class="back-link fade-in" href="index.html">Back to Greenwingo</a>
+
+    <div class="note-content">
+
+      <p class="note-lead fade-in">There was a day I packed my bags and left, far away, looking for a better life. When we're young the world feels like an open door: everything still to conquer, everything possible, or at least better than what we're leaving behind. In that moment, no one thinks too much about who stays.</p>
+
+      <p class="fade-in">And yet behind us stay the grandparents, the parents, a community that watches its children and grandchildren leave, one after another. What stays is a suspended inheritance — houses, land, memories — with no one left to claim it. It takes only a few years for an entire village to empty out. What stays is family growing older while they wait for a return, and time passing while the seasons stay exactly the same: in the end, it's the seasons that mark the waiting.</p>
+
+      <p class="fade-in">This isn't just an Italian thing. It's the same story in every country where young people, like me, decide to leave — and the return, when it comes, is often uncertain, almost occasional, never a given. But it concerns <span class="loc">Italy</span> in a particular way, and it concerns <span class="loc">Abruzzo</span> more than we'd like: a deep wound, made worse by a demographic decline felt here more than elsewhere. In the region's small mountain municipalities there are now two elderly people for every young one, and more than half of Abruzzo's towns lose residents year after year — in some cases, like <span class="loc">Rosello</span> in the <span class="loc">Chieti</span> province, over a quarter of the population gone in just five years.</p>
+
+      <p class="fade-in">What gets lost, when a village empties out like this? Not just empty houses. Traditions get lost, stories get lost, a guide for navigating the stormy world we live in today gets lost — because who, if not those who've already lived through the darkest times, can really point us in a direction? And yet, underneath this slow emptying, there's something else too: the wish to return, the nostalgia that never quite goes out, even in someone like me who left and hasn't yet found the way back.</p>
+
+      <div class="pull-quote fade-in">
+        <p>It's exactly from here — from the nostalgia of those who are far away, and the stubbornness of those who stayed — that a few signs of hope are taking root in <span class="loc" style="color: var(--forest);">Abruzzo</span>.</p>
+      </div>
+
+      <p class="fade-in">One of the most beautiful is so-called roots tourism: between 1891 and 1920, over 775,000 people left <span class="loc">Abruzzo</span> and <span class="loc">Molise</span>, almost all of them from small inland towns. Today the region, helped by a project backed with PNRR funds, invites their descendants — children, grandchildren, great-grandchildren now scattered across <span class="loc">Canada</span>, the <span class="loc">United States</span>, <span class="loc">South America</span> — to come back and search for their origins. It isn't just a tourism operation: in places like the <span class="loc">Valle Subequana</span>, Italian-American families have already arrived and found their great-grandparents' house, and in some cases have decided to stay, or at least to come back every year.</p>
+
+      <p class="fade-in">Then there are the €1 homes, which in <span class="loc">Abruzzo</span> have involved towns like <span class="loc">Pratola Peligna</span>, <span class="loc">Canistro</span>, <span class="loc">Casoli</span>, <span class="loc">Lecce nei Marsi</span>, <span class="loc">Penne</span>, <span class="loc">Morro d'Oro</span>, and <span class="loc">Santo Stefano di Sessanio</span>. It's never really "one euro" — renovating takes thousands of euros and years of commitment — but it's a concrete way to bring life back to houses that would otherwise simply collapse on their own, and to put a spotlight back on villages the rest of Italy had stopped looking at.</p>
+
+      <p class="fade-in">Others arrive from outside and end up genuinely spellbound by the beauty of these places — not enough to live here year-round, but enough to put them back in the world's spotlight. For over forty years <span class="loc">Abruzzo</span> has been an international film set: <span class="person">Sean Connery</span> shot "The Name of the Rose" on the <span class="loc">Gran Sasso</span>, <span class="person">George Clooney</span> chose these places for "The American," <span class="person">Michael Mann</span> set scenes of "Ferrari" between <span class="loc">Campo Imperatore</span> and <span class="loc">Santo Stefano di Sessanio</span>. Most recently it was <span class="person">Ridley Scott</span>'s turn, filming his new movie "The Dog Stars" right in <span class="loc">Avezzano</span> and <span class="loc">Ovindoli</span> — the very towns I write about here so often. And <span class="person">Russell Crowe</span>, the face of Scott's "Gladiator," driving through <span class="loc">Abruzzo</span> once photographed the hill of <span class="loc">Alba Fucens</span> with <span class="loc">Monte Velino</span> behind it, asking his followers "where am I right now?" — plenty answered <span class="loc">Pompeii</span>, mistaking the Roman ruins of <span class="loc">Massa d'Albe</span> for the ones beneath <span class="loc">Vesuvius</span>. It's not just local pride: every film crew that arrives, every photo that shows these villages to the world, is a small reminder of how much here is worth protecting, before it empties out for good.</p>
+
+      <p class="fade-in">Some, instead, stayed and reinvented their own town: <span class="loc">Santo Stefano di Sessanio</span>, where a scattered hotel — Sextantio — turned an almost-abandoned village into an internationally recognized destination without betraying its medieval soul. Or <span class="loc">Aielli</span>, which answered the emptying-out not with luxury but with art: murals on empty houses, to show that a small town can still have something to say to the world.</p>
+
+      <p class="fade-in">There's also a village that found its own way back to life by making room for nature to reclaim its space. In <span class="loc">Pettorano sul Gizio</span>, a small mountain village in <span class="loc">Abruzzo</span>, residents have learned to live alongside the Marsican brown bears wandering once again between the houses — making everything from bins to henhouses and gardens "bear-proof." In April 2025 The Guardian told this story, describing a village that stopped fearing its wildlife and started building a new economy around it instead: a wildlife photographer who moved there with his family, a restaurant owner for whom rewilding tourism has been "a real life-saver," visitors who come to see the bears and end up falling for the village itself. Here too, depopulation reversing itself — not by looking to the past, but by betting on a future shared with the wildlife that never really left.</p>
+
+      <p class="fade-in">I don't know if it will be enough. What I know is that every time I hear about someone coming back — for their roots, for the love of a place, for the wish for a slower life — I feel like I can see, underneath the ashes, an ember that never really went out. Hope, in the end, is always there, in the background, waiting the way grandparents wait: patiently, season after season.</p>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p><span>Greenwingo</span> &nbsp;·&nbsp; Villages of Abruzzo &nbsp;·&nbsp; © 2026</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
