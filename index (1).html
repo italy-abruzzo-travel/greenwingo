@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PK5HE4096N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PK5HE4096N');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="description" content="A personal journey through forgotten and authentic villages of rural Italy — written from Abruzzo with slow life in mind.">
+  <meta property="og:title" content="Greenwingo — Villages of Abruzzo" />
+  <meta property="og:description" content="A personal journey through forgotten and authentic villages of rural Italy — written from Abruzzo with slow life in mind." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://greenwingo.blog/" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:image" content="https://greenwingo.blog/favicon.png" />
+  <title>Greenwingo — Villages of Abruzzo</title>
+  <link rel="canonical" href="https://greenwingo.blog/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --terracotta: #c4622d;
+      --terracotta-light: #d4754a;
+      --terracotta-pale: #f0d9cc;
+      --forest: #3a5a3c;
+      --forest-light: #5a7a5c;
+      --stone: #8c8278;
+      --stone-light: #b5aea6;
+      --ink: #2a2420;
+      --ink-soft: #4a3f3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--forest);
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 60%, rgba(58,90,60,0.0) 0%, rgba(30,50,30,0.6) 100%),
+        radial-gradient(ellipse 60% 80% at 80% 30%, rgba(196,98,45,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .blog-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+
+    .blog-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-title span {
+      color: var(--terracotta-light);
+      font-style: italic;
+    }
+
+    .blog-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--stone-light);
+      margin-top: 1.2rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .header-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--terracotta);
+      margin: 0 auto 2rem;
+      opacity: 0.7;
+    }
+
+    .header-intro {
+      max-width: 520px;
+      font-size: 0.95rem;
+      color: var(--stone-light);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── SERIES SECTION ── */
+    .series-section {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--stone);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── SLIDESHOW GENERAL ── */
+    .slideshow-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/7;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active { opacity: 1; }
+
+    /* ── GRIGLIA TRITTICO (DESKTOP) ── */
+    .slide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1.5rem;
+      width: 100%;
+      height: 100%;
+      background: var(--cream);
+      align-items: center;
+    }
+
+    .mini-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide.active .mini-photo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide.active .mini-photo:nth-child(1) { transition-delay: 0.2s; }
+    .slide.active .mini-photo:nth-child(2) { transition-delay: 0.5s; }
+    .slide.active .mini-photo:nth-child(3) { transition-delay: 0.8s; }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(30,24,16,0.08) 0%,
+        rgba(30,24,16,0.0) 40%,
+        rgba(30,24,16,0.38) 100%
+      );
+      pointer-events: none;
+    }
+
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(245,240,232,0.1);
+      border: 1px solid rgba(245,240,232,0.18);
+      color: rgba(245,240,232,0.7);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1.1rem;
+      backdrop-filter: blur(4px);
+      line-height: 1;
+    }
+
+    .slide-arrow:hover {
+      background: rgba(196,98,45,0.45);
+      color: white;
+      border-color: transparent;
+    }
+
+    .slide-arrow.prev { left: 0.8rem; }
+    .slide-arrow.next { right: 0.8rem; }
+
+    .slideshow-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stone-light);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+      padding: 0;
+    }
+
+    .dot.active {
+      background: var(--terracotta);
+      transform: scale(1.35);
+    }
+
+    /* ── SERIES CARDS ── */
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .series-card {
+      border-radius: 2px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .series-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(42,36,32,0.12); }
+
+    .card-thumb {
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+
+    .card-thumb.village-diaries {
+      background-color: var(--forest);
+    }
+
+    .card-thumb.ghost-villages {
+      background-color: #2e2820;
+    }
+
+    .card-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,12,8,0.32) 0%, rgba(20,16,10,0.15) 45%, rgba(15,12,8,0.82) 100%);
+    }
+
+    .series-card:hover .card-thumb { transform: scale(1.04); }
+
+    .card-series-label {
+      position: absolute;
+      top: 1.2rem;
+      left: 1.5rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta-pale);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.65), 0 2px 10px rgba(0,0,0,0.45);
+      opacity: 0.8;
+    }
+
+    .card-icon {
+      font-size: 3.5rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      opacity: 0.22;
+    }
+
+    .card-title {
+      font-family: 'Lora', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--cream);
+      position: relative;
+ z-index: 1;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-top: 2px solid var(--terracotta-pale);
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--stone);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .card-count {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    /* ── COMING SOON ── */
+    .coming-section {
+      background: var(--cream);
+      border-top: 1px solid var(--terracotta-pale);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .coming-inner { max-width: 600px; margin: 0 auto; }
+
+    .coming-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .coming-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .coming-title em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .coming-text {
+      font-size: 0.93rem;
+      color: var(--stone);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── NOTES & FINDS ── */
+    .notes-section {
+      background: var(--warm-white);
+      border-top: 1px solid var(--terracotta-pale);
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding: 5rem 2rem;
+    }
+
+    .notes-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .notes-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .notes-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .notes-title em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .notes-sub {
+      font-size: 0.9rem;
+      color: var(--stone);
+      margin-bottom: 3rem;
+    }
+
+    .note-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 1.8rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+
+    .note-date {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--stone-light);
+      padding-top: 0.25rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .note-body {
+      border-left: 1px solid var(--terracotta-pale);
+      padding-left: 1.8rem;
+    }
+
+    .note-text {
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-link {
+      font-size: 0.8rem;
+      color: var(--terracotta) !important;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .note-link:hover { border-color: var(--terracotta); }
+    .note-link::after { content: ' →'; }
+
+    /* ── ABOUT ── */
+    .about-section {
+      max-width: 680px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-accent {
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--terracotta), var(--forest));
+      border-radius: 2px;
+      min-height: 120px;
+    }
+
+    .about-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-text {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 400;
+    }
+
+    .about-text em {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--stone-light);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer span { color: var(--terracotta-light); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .coming-link {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-pale);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .coming-link:hover { border-color: var(--terracotta); }
+
+
+    /* ── SEZIONE MOBILE RESPONSIVE ADATTATA A 9 FOTO ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-accent { display: none; }
+      .note-item { grid-template-columns: 1fr; }
+      .note-date { text-align: left; }
+      
+      .slideshow-wrapper { 
+        aspect-ratio: auto; 
+        height: 380px;
+        overflow: hidden;
+        position: relative;
+        touch-action: pan-y cubic-bezier;
+      }
+      
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+        display: block !important;
+      }
+
+      .slide.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .slide.exit-up {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+
+      .slide-grid { 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+        padding: 0.6rem;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+      }
+      
+      .mini-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2px;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .slideshow-dots { 
+        display: flex !important; 
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+      .slide-arrow { display: none !important; }
+    }
+    .mini-photo { cursor: zoom-in; }
+
+    .lightbox-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(20,16,12,0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 3rem 1.5rem;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img {
+      max-width: 100%; max-height: 100%;
+      border-radius: 2px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.5rem;
+      color: var(--cream); font-size: 1.6rem; line-height: 1;
+      background: none; border: none; cursor: pointer; opacity: 0.7;
+    }
+    .lightbox-close:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <p class="blog-eyebrow">A personal journey through Abruzzo</p>
+      <h1 class="blog-title">Green<span>wingo</span></h1>
+      <p class="blog-tagline">Villages, silence, and the stories left behind</p>
+      <div class="header-divider"></div>
+      <p class="header-intro">
+        A blog about the small places that time forgot — and the ones still quietly alive.
+        Written from the hills of the L'Aquila province, with care.
+      </p>
+    </div>
+  </header>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Greenwingo</a>
+    <ul class="nav-links">
+      <li><a href="#series">Series</a></li>
+      <li><a href="#coming">Latest</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="series-section" id="series">
+    <p class="section-label fade-in">The Series</p>
+    <h2 class="section-title fade-in">Two ways of listening<br>to a village</h2>
+    <p class="section-desc fade-in">Some villages still breathe. Others speak only through ruins. Both have something to say.</p>
+
+    <!-- SLIDESHOW PRINCIPALE (4 GRUPPI DA 3 FOTO = 4 PUNTINI) -->
+    <div class="slideshow-wrapper fade-in" id="slideshow">
+
+      <!-- GRUPPO 1: Villalago + Buonanotte -->
+      <div class="slide">
+        <div class="slide-grid">
+          <img src="images/villalagofotosfondo.jpg" class="mini-photo" alt="Villalago Sfondo">
+          <img src="images/villalagoeramo.jpg" class="mini-photo" alt="Villalago Eremo">
+          <img src="images/buonanotte-foto.jpg" class="mini-photo" alt="Buonanotte Dettaglio">
+        </div>
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- GRUPPO 2: Villalago Daini, Buonanotte, Aielli Belvedere -->
+      <div class="slide">
+        <div class="slide-grid">
+          <img src="images/villalagodaini.jpg" class="mini-photo" alt="Villalago Daini">
+          <img src="images/buonanotte6.jpg" class="mini-photo" alt="Buonanotte">
+          <img src="images/belvedereaielli.jpg" class="mini-photo" alt="Aielli Belvedere">
+        </div>
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- GRUPPO 3: Aielli Murales Astronauta, Murales Famoso, Canistro Fontana Maschere -->
+      <div class="slide">
+        <div class="slide-grid">
+          <img src="images/muralesastronautaaielli.jpg" class="mini-photo" alt="Aielli Murales Astronauta">
+          <img src="images/muralesfamosoaielli.jpg" class="mini-photo" alt="Aielli Murales Famoso">
+          <img src="images/fontanaconmaschereCanistroSuperiore2.JPG" class="mini-photo" alt="Canistro Fontana con le Maschere">
+        </div>
+        <div class="slide-overlay"></div>
+      </div>
+
+      <!-- GRUPPO 4: Canistro Panchina, Cascata Sponga, Capistrello -->
+      <div class="slide">
+        <div class="slide-grid">
+          <img src="images/panchinanelboscoCanistroSuperiore.JPG" class="mini-photo" alt="Canistro Panchina nel Bosco">
+          <img src="images/cascatalaspongacanistro.JPG" class="mini-photo" alt="Cascata Parco della Sponga">
+          <img src="images/CapistrelloVecchio.JPG" class="mini-photo" alt="Capistrello Vecchio">
+        </div>
+        <div class="slide-overlay"></div>
+      </div>
+
+      <button class="slide-arrow prev" onclick="changeSlide(-1)">&#8249;</button>
+      <button class="slide-arrow next" onclick="changeSlide(1)">&#8250;</button>
+    </div>
+
+    <div class="slideshow-dots" id="dots"></div>
+
+    <div class="lightbox-overlay" id="lightbox">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <!-- GRIGLIA VILLAGE DIARIES + GHOST VILLAGES CON ARTICOLI SPECIFICI -->
+    <div class="series-grid">
+      <a class="series-card fade-in" href="villalago.html">
+        <div class="card-thumb village-diaries" style="background-image: url('images/villalagofotosfondo.jpg');">
+          <span class="card-series-label">Village Diaries №1</span>
+          <h3 class="card-title">Villalago</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">A living village in the Sagittario valley. Deer, gorges, and a Sunday that tasted like slow life.</p>
+          <p class="card-count">Read the article</p>
+        </div>
+      </a>
+
+      <a class="series-card fade-in" href="aielli.html">
+        <div class="card-thumb village-diaries" style="background-image: url('images/romanzofontamaramurales.jpg');">
+          <span class="card-series-label">Village Diaries №2</span>
+          <h3 class="card-title">Aielli</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">The astronomy village coated in vibrant street art. Constellations, poetry, and the murals that painted it back to life.</p>
+          <p class="card-count">Read the article</p>
+        </div>
+      </a>
+
+      <a class="series-card fade-in" href="canistro.html">
+        <div class="card-thumb village-diaries" style="background-image: url('images/fontanaconmaschereCanistroSuperiore3.JPG');">
+          <span class="card-series-label">Village Diaries №3</span>
+          <h3 class="card-title">Valle Roveto &amp; Canistro</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">A village built around water — fountains everywhere, an emigration story carved into stone, and a Sunday that started at the Parco della Sponga.</p>
+          <p class="card-count">Read the article</p>
+        </div>
+      </a>
+
+      <a class="series-card fade-in" href="buonanotte.html">
+        <div class="card-thumb ghost-villages" style="background-image: url('images/buonanottefoto3.jpg');">
+          <span class="card-series-label">Ghost Villages №1</span>
+          <h3 class="card-title">Buonanotte</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Abandoned, silent, slowly returning to the earth. A village that emptied out and the silence moved in to stay.</p>
+          <p class="card-count">Read the article</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="coming-section" id="coming">
+    <div class="coming-inner">
+      <p class="coming-eyebrow fade-in">Latest Article</p>
+      <h2 class="coming-title fade-in"><em>Valle Roveto &amp; Canistro</em> — A Generous Land</h2>
+      <p class="coming-text fade-in">
+        A Sunday that starts at the Parco della Sponga and climbs to a village where every fountain still runs.
+        Emigration, memory, and the water that ties it all together.
+      </p>
+      <a href="canistro.html" class="coming-link fade-in">Read the article →</a>
+    </div>
+  </section>
+
+  <!-- SEZIONE NOTES AGGIORNATA CON IL NUOVO ARTICOLO SU CANISTRO (FOURTH ARTICLE IN ORDINE CRONOLOGICO) -->
+  <section class="notes-section" id="notes">
+    <div class="notes-inner">
+      <p class="notes-label fade-in">Notes &amp; Finds</p>
+      <h2 class="notes-title fade-in">Thoughts, links,<br>and <em>things worth sharing</em></h2>
+      <p class="notes-sub fade-in">A small corner for whatever does not fit an article.</p>
+
+      <div class="note-item fade-in">
+        <span class="note-date">Aug 2026</span>
+        <div class="note-body">
+          <p class="note-text">The villages that empty out — a personal reflection on the depopulation of Abruzzo's inland villages: what gets lost when a borgo slowly empties, and the quiet signs of hope bringing people back — roots tourism, €1 homes, bears returning to Pettorano sul Gizio, and the film crews that keep falling for these places.</p>
+          <a class="note-link" href="empty-villages.html">Read the reflection</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">Aug 2026</span>
+        <div class="note-body">
+          <p class="note-text">Avezzano — gateway to the Marsica. A practical guide to using the town as a base: how to get there, what to see in Avezzano itself, and the villages, canyons, and ruins within easy reach — Aielli, Canistro, Villalago, Celano, Alba Fucens, Cocullo, and more.</p>
+          <a class="note-link" href="avezzano.html">Read the guide</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">July 2026</span>
+        <div class="note-body">
+          <p class="note-text">Fourth article out — Valle Roveto & Canistro (A Generous Land), a village built entirely around its fountains. Starts at the Parco della Sponga and climbs through an emigration exhibit, a chapel in the chestnut woods, and the Liri river.</p>
+          <a class="note-link" href="canistro.html">Read the article</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">June 2026</span>
+        <div class="note-body">
+          <p class="note-text">Third article out — Aielli (Borgo Universo), the astronomy village coated in vibrant street art. A perfect crossroad between constellations, poetry, and slow walking.</p>
+          <a class="note-link" href="aielli.html">Read the article</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">May 2026</span>
+        <div class="note-body">
+          <p class="note-text">The story behind Greenwingo — on photographing with intention, choosing presence over pixels, and why some places deserve more than an algorithm.</p>
+          <a class="note-link" href="beyond-the-phone-gallery.html">Read the story</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">May 2026</span>
+        <div class="note-body">
+          <p class="note-text">Second article out — Villalago, a living village in the Sagittario valley. Deer, gorges, and a Sunday that tasted like slow life.</p>
+          <a class="note-link" href="villalago.html">Read the article</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">Apr 2026</span>
+        <div class="note-body">
+          <p class="note-text">First article out — the story of Buonanotte, an abandoned village in the Val di Sangro that I found almost by accident.</p>
+          <a class="note-link" href="buonanotte.html">Read the article</a>
+        </div>
+      </div>
+
+      <div class="note-item fade-in">
+        <span class="note-date">Apr 2026</span>
+        <div class="note-body">
+          <p class="note-text">The real luxury — slowing down. A reflection on living in a small province, the stress of big cities, and why I wouldn't trade this for anything.</p>
+          <a class="note-link" href="notes.html">Read the reflection</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="about-accent"></div>
+    <div>
+      <p class="about-label fade-in">About this blog</p>
+      <p class="about-text fade-in">
+        Abruzzo - a land full of villages that most people drive past without stopping.
+        <em>Greenwingo</em> is my way of stopping.
+        Of walking in, looking around, and writing down what I find.
+        No tourism brochures. Just honest curiosity, a camera, and time.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <span>Greenwingo</span> &nbsp;·&nbsp;
+      Villages of Abruzzo &nbsp;·&nbsp;
+      If you want to share a story or just say hello:
+      <a href="mailto:greenwingo.blog@gmail.com" style="color: inherit; text-decoration: underline;">greenwingo.blog@gmail.com</a> &nbsp;·&nbsp;
+      © 2026
+    </p>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    const isMobile = () => window.innerWidth <= 600;
+    let current = 0;
+    let timer;
+    
+    const wrapper = document.getElementById('slideshow');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots');
+
+    function setupDots() {
+      dotsContainer.innerHTML = '';
+      const totalDots = slides.length; 
+      
+      for (let i = 0; i < totalDots; i++) {
+        const btn = document.createElement('button');
+        btn.className = `dot ${i === 0 ? 'active' : ''}`;
+        btn.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(btn);
+      }
+    }
+
+    function goToSlide(n) {
+      const total = slides.length;
+      const prevIndex = current;
+      current = (n + total) % total;
+
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+
+      if (!isMobile()) {
+        slides.forEach(s => s.className = 'slide');
+        if (slides[current]) slides[current].classList.add('active');
+      } else {
+        slides.forEach(s => {
+          s.className = 'slide';
+          s.style.transform = 'translateY(100%)';
+        });
+
+        if (prevIndex !== current && slides[prevIndex]) {
+          slides[prevIndex].classList.add('exit-up');
+        }
+
+        slides[current].classList.add('active');
+        slides[current].style.transform = 'translateY(0)';
+      }
+      resetTimer();
+    }
+
+    function changeSlide(dir) { 
+      goToSlide(current + dir); 
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      if (!isMobile()) {
+        timer = setInterval(() => changeSlide(1), 5000);
+      }
+    }
+
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    wrapper.addEventListener('touchstart', e => {
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', e => {
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const threshold = 40;
+      if (touchStartY - touchEndY > threshold) {
+        changeSlide(1);
+      } else if (touchEndY - touchStartY > threshold) {
+        changeSlide(-1);
+      }
+    }
+
+    window.addEventListener('resize', () => { setupDots(); goToSlide(0); });
+    document.addEventListener("DOMContentLoaded", () => { setupDots(); goToSlide(0); });
+
+    // Lightbox: click any slideshow photo to view it enlarged
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.mini-photo').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+      });
+    });
+    function closeLightbox() { lightbox.classList.remove('active'); }
+    lightbox.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
+</body>
+</html>
