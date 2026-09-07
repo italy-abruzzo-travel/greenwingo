@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pietrasecca — A Village Born From Stone</title>
+<style>
+  :root{
+    --ink:#2b2620;
+    --paper:#faf6ef;
+    --accent:#a8562c;
+    --muted:#6b6255;
+    --line:#e4dbc9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    line-height:1.7;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 20px 60px;
+  }
+  header.hero{
+    position:relative;
+    margin-bottom:28px;
+  }
+  header.hero img{
+    width:100%;
+    height:56vh;
+    min-height:280px;
+    max-height:520px;
+    object-fit:cover;
+    display:block;
+  }
+  header.hero .hero-caption{
+    max-width:760px;
+    margin:0 auto;
+    padding:22px 20px 0;
+  }
+  .kicker{
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+    color:var(--accent);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  h1{
+    font-size:2rem;
+    line-height:1.2;
+    margin:0 0 10px;
+    font-weight:400;
+  }
+  .sub{
+    color:var(--muted);
+    font-style:italic;
+    margin:0 0 4px;
+    font-size:1.02rem;
+  }
+  p{
+    margin:0 0 18px;
+    font-size:1.06rem;
+  }
+  h2{
+    font-size:1.3rem;
+    font-weight:400;
+    margin:40px 0 14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink);
+  }
+  figure{
+    margin:22px 0;
+  }
+  figure img{
+    width:100%;
+    display:block;
+    border-radius:3px;
+  }
+  figcaption{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-top:8px;
+    text-align:center;
+  }
+  .pair{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:22px 0;
+  }
+  .pair figure{margin:0;}
+  .pair img{height:100%; object-fit:cover;}
+  .trio{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:22px 0;
+  }
+  .trio figure{margin:0;}
+  .trio img{aspect-ratio:1/1; object-fit:cover;}
+  .pull{
+    font-style:italic;
+    font-size:1.18rem;
+    color:var(--accent);
+    border-left:3px solid var(--accent);
+    padding-left:16px;
+    margin:30px 0;
+  }
+  .notes{
+    background:#f2ece0;
+    border-radius:6px;
+    padding:20px 22px;
+    margin-top:40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:0.95rem;
+  }
+  .notes h2{border:none; margin-top:0; font-size:1.1rem;}
+  .notes ul{margin:0; padding-left:20px;}
+  .notes li{margin-bottom:8px;}
+  footer{
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:0.85rem;
+    text-align:center;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width:600px){
+    .wrap{padding:0 14px 40px;}
+    header.hero img{height:42vh; min-height:220px;}
+    header.hero .hero-caption{padding:18px 14px 0;}
+    h1{font-size:1.5rem;}
+    h2{font-size:1.12rem; margin:32px 0 12px;}
+    p{font-size:1rem;}
+    .pair{grid-template-columns:1fr; gap:14px;}
+    .trio{grid-template-columns:1fr 1fr; gap:8px;}
+    .trio figure:last-child{grid-column:1/-1;}
+    .pull{font-size:1.05rem; margin:24px 0;}
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#ece6da;
+      --paper:#1c1a16;
+      --accent:#e28a52;
+      --muted:#a49a89;
+      --line:#3a352c;
+    }
+    .notes{background:#26221c;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <img src="images/pietraseccaimaginedalontano.jpg" alt="Pietrasecca seen from a distance, perched on its rock spur above the green valley">
+    <div class="hero-caption">
+      <p class="kicker">Village Diaries</p>
+      <h1>Pietrasecca — A Village Born From Stone</h1>
+      <p class="sub">A borgo on a rock spur in the Marsica, and the day I finally went looking for it.</p>
+    </div>
+  </header>
+
+  <p>There are villages that catch your eye from far away. They stand out from the others, maybe because they look almost unreachable — and yet that's exactly what pulls visitors in. They're a kind of challenge.</p>
+
+  <p>It happens to me often, driving along the roads of Abruzzo: I notice a jewel set into the mountains, far off, and something tightens a little in my chest. In the evening, the lights of these villages are always faint, scattered, half-swallowed by the dark. You ask yourself, <em>does anyone really still live up there?</em> And then you think, <em>I have to go there one of these days.</em></p>
+
+  <p>I look at them at night and feel something strange, a pull I can't look away from — almost a fear that those few lights will go out for good, sooner or later.</p>
+
+  <p class="pull">Pietrasecca is one of these villages. Particularly beautiful, imposing, sitting on top of an enormous rock, looking unreachable from below.</p>
+
+  <figure>
+    <img src="images/pietraseccaingressoalpaese.jpg" alt="The entrance to Pietrasecca village, with houses climbing the hillside behind">
+    <figcaption>The road finally arrives — the entrance to Pietrasecca.</figcaption>
+  </figure>
+
+  <h2>Into the mountain first</h2>
+
+  <p>The day I actually visited, I hadn't gone for the village itself. I'd gone to see the Grotte di Pietrasecca — the caves.</p>
+
+  <figure>
+    <img src="images/pietraseccapercorsoversolegrotte.jpg" alt="Path through the woods leading to the caves, with a wooden sign for Grotta del Cervo">
+    <figcaption>The trail through the woods toward the Grotta del Cervo.</figcaption>
+  </figure>
+
+  <div class="pair">
+    <figure>
+      <img src="images/pietraseccaindicazionegrottadelcervo.jpg" alt="Signpost reading Grotta del Cervo along the forest path">
+      <figcaption>Grotta del Cervo — the way in.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/pietraseccaingressogrotte1.jpg" alt="Stone picnic tables near the entrance to the cave reserve">
+      <figcaption>Resting spot before the descent underground.</figcaption>
+    </figure>
+  </div>
+
+  <p>They were beautiful. The guide was excellent, and she took us through the first stretch of the route, explaining how the cave was discovered, its age, everything about that underground world.</p>
+
+  <p>What I appreciated most was that there are no artificial lights inside — total respect for the environment, for the fragile balance that defines a place like this.</p>
+
+  <div class="trio">
+    <figure>
+      <img src="images/pietraseccaingrotta1.jpg" alt="A tall stalagmite lit only by torchlight inside the cave">
+    </figure>
+    <figure>
+      <img src="images/pietraseccaingrotta2.jpg" alt="Limestone formations glittering inside the cave">
+    </figure>
+    <figure>
+      <img src="images/pietraseccaingrotta3.jpg" alt="Cave formations rising out of the darkness under a single beam of light">
+    </figure>
+  </div>
+  <p class="sub" style="text-align:center; margin-top:-10px; font-size:0.85rem;">Inside the Grotta del Cervo — no artificial lights, just the beam of the guide's torch.</p>
+
+  <p>When the visit ended, we talked a little more with her, and she gave us a few suggestions for continuing on in the area.</p>
+
+  <h2>A village grown out of the rock</h2>
+
+  <p>Pietrasecca is fascinating because it feels like a village born out of the stone itself. The houses, the walls, the streets — there's no line separating the rock from what was built on top of it.</p>
+
+  <figure>
+    <img src="images/pietraseccacasaepietra.jpg" alt="A house wall merging directly into the bare limestone rock it was built against">
+    <figcaption>Where the wall ends and the mountain begins — hard to tell.</figcaption>
+  </figure>
+
+  <p>It's easy to see why the name stuck: <em>pietra secca</em>, dry stone. No river here, no green valley floor. Just rock, and the houses that cling to it.</p>
+
+  <p>There are so many empty houses. Old front doors, closed for good, rusted by time — some of them opening straight onto a drop, with nothing below but empty air. Who knows if that used to be a house, or a storeroom?</p>
+
+  <div class="pair">
+    <figure>
+      <img src="images/pietraseccavecchiaporta.jpg" alt="An old wooden door set into an arched stone doorway">
+      <figcaption>One of the many old doors that no longer open.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/pietraseccavecchiastalla.jpg" alt="A weathered wooden door of what was once a stable">
+      <figcaption>What used to be a stable, or maybe a storeroom.</figcaption>
+    </figure>
+  </div>
+
+  <p>That afternoon it was very hot, and there wasn't a soul in the streets. We ate at a small restaurant in the piazza — really good, genuine food, in just the right amount to appreciate how good it was.</p>
+
+  <figure>
+    <img src="images/pietraseccafontana.jpg" alt="An old stone fountain in a quiet corner of the village">
+    <figcaption>A quiet corner with the village fountain.</figcaption>
+  </figure>
+
+  <p>Then we started climbing the main street of the village, and lost ourselves among the alleys — old houses and new ones mixed together, endless steps.</p>
+
+  <figure>
+    <img src="images/pietraseccastrada-principale.jpg" alt="The main street of Pietrasecca, lined with stone houses">
+    <figcaption>The main street, climbing straight into the village.</figcaption>
+  </figure>
+
+  <div class="trio">
+    <figure><img src="images/pietraseccavicoli2.jpg" alt="A narrow stone alley in Pietrasecca"></figure>
+    <figure><img src="images/pietraseccavicoli4.jpg" alt="An alley opening onto a terrace with a view of the valley"></figure>
+    <figure><img src="images/pietraseccavicoli9.jpg" alt="A stone door decorated with hanging flower pots"></figure>
+  </div>
+
+  <div class="trio">
+    <figure><img src="images/pietraseccavicoli1.jpg" alt="A doorway framed by climbing roses"></figure>
+    <figure><img src="images/pietraseccavicoli5.jpg" alt="A wooden door under an arched stone entrance"></figure>
+    <figure><img src="images/pietraseccavicoli7.jpg" alt="A window with wooden shutters and red geraniums above"></figure>
+  </div>
+
+  <p class="sub" style="text-align:center; margin-top:-10px; font-size:0.85rem;">Wandering the vicoli — roses, closed shutters, flowers on doors nobody opens anymore.</p>
+
+  <figure>
+    <img src="images/pietraseccascalini.jpg" alt="A stone staircase climbing between houses, decorated with pots of flowers">
+    <figcaption>One of the endless staircases that thread the village together.</figcaption>
+  </figure>
+
+  <h2>The church at the top</h2>
+
+  <p>Following the steps up, we reached the parish church of Santa Maria delle Grazie, its stairway climbing straight to the door.</p>
+
+  <figure>
+    <img src="images/pietraseccachiesasantamariadellegrazie.jpg" alt="The stone facade and stairway of the church of Santa Maria delle Grazie">
+    <figcaption>Santa Maria delle Grazie, at the highest point of the walk up.</figcaption>
+  </figure>
+
+  <h2>What's left of Santo Stefano</h2>
+
+  <p>Higher still, past the last houses, what's left of the old church of Santo Stefano stands open to the sky — destroyed by the 1915 earthquake that flattened so much of the Marsica, and never rebuilt.</p>
+
+  <div class="pair">
+    <figure>
+      <img src="images/pietraseccainnoasantostefano.jpg" alt="A hand-painted plaque with a hymn dedicated to Santo Stefano set into the ruined wall">
+      <figcaption>A hymn to Santo Stefano, painted onto the ruin itself.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/pietraseccarovinechiesasantostefano2.jpg" alt="A stone archway in the ruined walls, framing a small painted icon">
+      <figcaption>What remains of the entrance.</figcaption>
+    </figure>
+  </div>
+
+  <div class="pair">
+    <figure>
+      <img src="images/pietraseccarovinechiesasantostefano4.jpg" alt="The roofless stone walls of the ruined church of Santo Stefano">
+      <figcaption>Roofless walls, open to the sky since 1915.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/pitraseccarivinechiesasantostefano.jpg" alt="A gap in the ruined stone walls looking out toward the surrounding mountains">
+      <figcaption>Looking out through what used to be a wall.</figcaption>
+    </figure>
+  </div>
+
+  <p>We reached the top where what's left of the old church still stands, and a breathtaking view opens up over the valleys around it. Up there you feel free, like an eagle in flight.</p>
+
+  <figure>
+    <img src="images/pietraseccascalesopralapietra.jpg" alt="A stone staircase with iron railing climbing along the bare rock above the village">
+    <figcaption>The last stretch, climbing along the bare rock.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/pietraseccavistaversoautostradaelavalle.jpg" alt="A wide view over green forested hills toward the A24 motorway winding through the valley below">
+    <figcaption>Below, the highway we drive so often — a small glimpse of how far off, and how welcoming, these villages really are.</figcaption>
+  </figure>
+
+  <p>Below, you can clearly see the highway we drive so often, the one that gives away just a little of how far off, and how welcoming, these small villages really are.</p>
+
+  <h2>A name older than it looks</h2>
+
+  <p>The first written record of Pietrasecca goes back to 1074, when — according to local tradition — King Pepin founded the castle of Luppa here, and the place appears in a document as "Petram Siccam."</p>
+
+  <p>But people were here long before that: fragments of pottery and inscriptions point to a fortified settlement of the ancient Equi, one of the Italic peoples who held these mountains before Rome absorbed them.</p>
+
+  <p>Through the Middle Ages the village passed between noble families, first the Orsini, then the Savelli — not conquered so much as inherited, married into, and eventually forgotten by the families who once fought over them.</p>
+
+  <p>History came back to visit in stranger ways more recently: in 1860, the Spanish general José Borjes was captured near here, and in 1915 the earthquake reached Pietrasecca too, destroying the church of Santo Stefano. What survives of it today is what the earthquake left behind.</p>
+
+  <h2>The village that emptied out</h2>
+
+  <p>At the start of the twentieth century, more than a thousand people lived in Pietrasecca. Today there are around 270. It's the same story I keep finding in every ghost and half-ghost village I write about here: not enough work, and Rome close enough — just over an hour away now — to pull people out, one family at a time, over decades.</p>
+
+  <p>It's what those empty houses and rusted doors I walked past were telling me, without needing to say it.</p>
+
+  <p>But Pietrasecca isn't empty. It's smaller, quieter, but it's alive. Inside Santa Maria delle Grazie, if the light is right, you can make out a fresco of the Coronation of the Virgin from the fifteenth or sixteenth century, faded but still watching over the nave. Every first weekend of September, the village keeps its patronal feast, and for a few days the streets that are usually silent fill up again with people who left and people who stayed.</p>
+
+  <p>Ignazio Silone knew this landscape and wrote it into <em>Bread and Wine</em> — Pietrasecca is one of the places that slips into his pages. And decades later, the mountain became a film set twice over: Lucio Fulci shot parts of <em>Don't Torture a Duckling</em> here in 1972, and the miniseries about the Soffiantini kidnapping used it as a location too. There's something fitting about a place this stark being chosen, twice, for stories with an edge of unease.</p>
+
+  <div class="notes">
+    <h2>Notes for anyone who wants to go</h2>
+    <ul>
+      <li>Pietrasecca is a frazione of Carsoli, about 5–6 km from the town centre, off the A24 — the same highway you can see from the top of the village.</li>
+      <li>The Grotta del Cervo is only visited with a guide, along marked routes of varying length — worth checking opening days before driving up.</li>
+      <li>There's a small restaurant in the piazza, good for a simple, genuine meal before or after the climb up through the village.</li>
+      <li>The patronal festival falls on the first weekend of September.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Village Diaries · Pietrasecca, Marsica
+  </footer>
+
+</div>
+</body>
+</html>
