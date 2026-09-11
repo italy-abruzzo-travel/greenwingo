@@ -62,6 +62,15 @@
     .article-photo img { width: 100%; display: block; object-fit: cover; }
     .article-photo figcaption { font-size: 0.78rem; color: var(--stone); padding: 0.6rem 0 0; letter-spacing: 0.03em; font-family: 'DM Sans', sans-serif; font-weight: 300; }
 
+    .info-box { background: var(--cream); border-radius: 4px; padding: 1.8rem 2rem; margin: 2.5rem 0; }
+    .info-box h3 { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
+    .info-box ul { list-style: none; padding: 0; margin: 0; }
+    .info-box li { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 0.9rem; padding-left: 1.2rem; position: relative; }
+    .info-box li::before { content: '—'; position: absolute; left: 0; color: var(--terracotta); }
+    .info-box li:last-child { margin-bottom: 0; }
+    .info-box a { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta-pale); }
+    .info-box a:hover { border-color: var(--terracotta); }
+
     .photo-grid { display: grid; gap: 0.6rem; margin: 2.5rem 0; }
     .photo-grid.cols-2 { grid-template-columns: 1fr 1fr; }
     .photo-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -284,6 +293,17 @@
 
     <p class="fade-in">I will certainly return to Aielli during the festival days, to see it dressed up and in the midst of its cultural fervor. But I am happy to have rediscovered it like this, on an ordinary day, when the village didn't have to play any part and was simply itself: proud, authentic, and tenaciously alive.</p>
 
+    <h2 class="fade-in">Notes for Anyone Who Wants to Go</h2>
+    <div class="info-box fade-in">
+      <ul>
+        <li>Aielli is a comune in the province of L'Aquila, at 1,020 m above the Fucino plain — about 20 minutes from Avezzano.</li>
+        <li><strong>By car:</strong> take the A25 (Rome–Pescara) and exit at "Aielli–Celano," reachable from Rome via the A24 toward L'Aquila and then the A25 toward Pescara, or from Pescara/Teramo directly on the A25 toward Rome. The village is also reachable on the SS5 Tiburtina Valeria, the old road linking Avezzano and Sulmona.</li>
+        <li>Leave the car in the main square: the murals, the belvedere, and the Torre delle Stelle are all an easy walk from there.</li>
+        <li>The <strong>Torre delle Stelle</strong> — the astronomical observatory and planetarium built into the old medieval tower — opens for telescope nights and guided visits by reservation only. Book through <a href="https://torredellestelleaielli.it/" target="_blank" rel="noopener">torredellestelleaielli.it</a> or WhatsApp +39 392 023 9904.</li>
+        <li>The murals, the Dante and Fontamara wall-texts, and the gallery of hanging books are all outdoors and free to see, any time of day.</li>
+      </ul>
+    </div>
+
   </article>
 
   <div class="article-nav">
@@ -310,3 +330,4 @@
 
 </body>
 </html>
+
