@@ -193,6 +193,15 @@
     .history-box::before { content: 'History'; position: absolute; top: -0.6rem; left: 1.5rem; background: var(--cream); padding: 0 0.5rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); }
     .history-box p { font-family: 'DM Sans', sans-serif !important; font-size: 0.93rem !important; color: var(--stone) !important; line-height: 1.85 !important; margin-bottom: 0 !important; }
 
+    .info-box { background: var(--cream); border: 1px solid var(--terracotta-pale); border-radius: 2px; padding: 2rem 2.2rem; margin: 3rem 0; position: relative; }
+    .info-box::before { content: 'Practical Notes'; position: absolute; top: -0.6rem; left: 1.5rem; background: var(--cream); padding: 0 0.5rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); }
+    .info-box ul { list-style: none; padding: 0; margin: 0; }
+    .info-box li { font-family: 'DM Sans', sans-serif; font-size: 0.93rem; color: var(--stone); line-height: 1.85; margin-bottom: 0.9rem; padding-left: 1.2rem; position: relative; }
+    .info-box li::before { content: '—'; position: absolute; left: 0; color: var(--terracotta); }
+    .info-box li:last-child { margin-bottom: 0; }
+    .info-box a { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta-pale); }
+    .info-box a:hover { border-color: var(--terracotta); }
+
     .photo-block { margin: 2.5rem -1rem; position: relative; overflow: hidden; }
     .photo-block img { width: 100%; display: block; object-fit: cover; max-height: 520px; opacity: 0; transform: scale(1.03); transition: opacity 0.9s ease, transform 0.9s ease; }
     .photo-block img.visible { opacity: 1; transform: scale(1); }
@@ -365,6 +374,16 @@
       <div class="photo-block fade-in">
         <img src="images/villalagosandomenicodafuori.jpg" alt="The shores of Lake San Domenico at dusk, Villalago, Abruzzo" loading="lazy" />
         <p class="photo-caption">The lake at the end of the day</p>
+      </div>
+
+      <div class="info-box fade-in">
+        <ul>
+          <li>Villalago is a village in the province of L'Aquila, inside the Riserva Naturale Guidata Gole del Sagittario.</li>
+          <li><strong>By car:</strong> take the A25 (Rome–Pescara) and exit at Cocullo, then follow the SP60 onto the SP479 toward the Lago di San Domenico — the village itself is another 4 minutes' drive past the lake, or a scenic hour's walk along the marked path via the Sega spring.</li>
+          <li>The road through the gorge is narrow, and roadside parking near the lake and the hermitage bridge is genuinely limited — go early, or be patient.</li>
+          <li>The <strong>Eremo di San Domenico</strong>, right on the lakeshore, is generally open during the day; there's no fixed entry fee, though a small offering is customary. The cave and the paintings inside are worth the stop.</li>
+          <li>Fallow deer are often seen grazing near the road and around Lago Pio, inside the village — keep your distance and don't approach them.</li>
+        </ul>
       </div>
 
       <div class="closing-note fade-in">
