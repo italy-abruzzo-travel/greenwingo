@@ -204,12 +204,12 @@
     .info-box a:hover { border-color: var(--terracotta); }
 
     .photo-block { margin: 2.5rem -1rem; position: relative; overflow: hidden; }
-    .photo-block img { width: 100%; display: block; object-fit: cover; max-height: 520px; opacity: 0; transform: scale(1.03); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .photo-block img { width: 100%; display: block; object-fit: cover; max-height: 520px; opacity: 0; transform: scale(1.03); transition: opacity 0.9s ease, transform 0.9s ease; cursor: zoom-in; }
     .photo-block img.visible { opacity: 1; transform: scale(1); }
     .photo-caption { font-size: 0.78rem; color: var(--stone-light); letter-spacing: 0.06em; font-style: italic; margin-top: 0.6rem; padding: 0 1rem; text-align: center; }
 
     .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 2.5rem -1rem; }
-    .photo-pair img { width: 100%; display: block; object-fit: cover; height: 320px; opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .photo-pair img { width: 100%; display: block; object-fit: cover; height: 320px; opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; cursor: zoom-in; }
     .photo-pair img.visible { opacity: 1; transform: none; }
     .photo-pair img:nth-child(2) { transition-delay: 0.15s; }
 
@@ -430,7 +430,7 @@
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
 
-    document.querySelectorAll('.gallery-grid img').forEach(img => {
+    document.querySelectorAll('.gallery-grid img, .photo-block img, .photo-pair img').forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
