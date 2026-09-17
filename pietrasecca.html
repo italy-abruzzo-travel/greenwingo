@@ -93,6 +93,14 @@
       .photo-grid.cols-3 { grid-template-columns: 1fr 1fr; }
       .photo-grid figure img { height: 160px; }
     }
+
+                  .article-photo img, .photo-grid figure img { cursor: zoom-in; }
+
+        .lightbox-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(20,16,12,0.94); display: none; align-items: center; justify-content: center; padding: 3rem 1.5rem; cursor: zoom-out; animation: fadeUp 0.25s ease both; }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-overlay img { max-width: 100%; max-height: 100%; border-radius: 2px; box-shadow: 0 24px 64px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 1.2rem; right: 1.5rem; color: var(--cream); font-size: 1.6rem; line-height: 1; background: none; border: none; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; }
+        .lightbox-close:hover { opacity: 1; }
   </style>
 </head>
 <body>
@@ -288,7 +296,7 @@
     </div>
 
   </article>
-  <div class="article-nav">
+<div class="lightbox-overlay" id="lightbox"><button class="lightbox-close" aria-label="Close">&times;<img id="lightbox-img" src="" alt="" /></button></div>
     <a href="canistro.html">&#8592; Valle Roveto &amp; Canistro</a>
     <span class="series-tag">Village Diaries</span>
     <a href="/">All articles &#8594;</a>
@@ -306,6 +314,20 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+        // Lightbox: click any article photo to view it enlarged
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        document.querySelectorAll('.article-photo img, .photo-grid figure img').forEach(img => {
+                img.addEventListener('click', () => {
+                          lightboxImg.src = img.src;
+                          lightboxImg.alt = img.alt;
+                          lightbox.classList.add('active');
+                });
+        });
+        function closeLightbox() { lightbox.classList.remove('active'); }
+        lightbox.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 </body>
 </html>
